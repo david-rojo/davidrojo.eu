@@ -15,6 +15,10 @@ In order to restore files in paid hosting just place the content of [public_html
 
 This file is used in order to allow that html files can be used as links without extensions, for example: [https://davidrojo.eu/spanish](https://davidrojo.eu/spanish)
 
+## Customization
+
+This webpage is a customization of the html template available in [david-rojo/personal-webpage-template](https://github.com/david-rojo/personal-webpage-template)
+
 ## Author
 
 [David Rojo (@david-rojo)](https://github.com/david-rojo)
