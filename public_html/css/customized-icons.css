@@ -1,0 +1,7 @@
+
+.uwphoto-icon {
+    content: url('../images/icons/uwphoto.png');
+    height: 20px;
+    width: 20px;
+    display: block;
+}
