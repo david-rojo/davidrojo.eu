@@ -1,19 +1,12 @@
-# Personal webpage
+# Introduction
 
-This repository is used as source control and backup of my personal webpage [davidrojo.eu](https://davidrojo.eu) that is available in two languages:
+You can edit any page with a simple text editor. When you commit the changes to the repository, the web page will be updated automatically.
 
-- English: [index.html](public_html/index.html)
-- Spanish: [spanish.html](public_html/spanish.html)
-
-This webpage has been developed using html5, css, javascript, bootstrap, php and jquery
-
-## Restore
-
-In order to restore files in paid hosting just place the content of [public_html](public_html) folder in location `/domains/davidrojo.eu/public_html`
+It has been developed using html5, css, javascript, bootstrap, php and jquery
 
 ## .htaccess file
 
-This file is used in order to allow that html files can be used as links without extensions, for example: [https://davidrojo.eu/spanish](https://davidrojo.eu/spanish)
+File is used in order to allow that html files can be used as links without extensions, for example: [https://davidrojo.eu/spanish](https://davidrojo.eu/spanish)
 
 ## Customization
 
