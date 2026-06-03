@@ -1,0 +1,338 @@
+# Roadmap de mejora de davidrojo.eu
+
+## Objetivo
+
+Documentar la evolución recomendada de la web personal `davidrojo.eu`, priorizando SEO, rendimiento, accesibilidad, mantenibilidad y experiencia de usuario.
+
+Este documento no implica que las mejoras deban acometerse de una sola vez. La recomendación es abordarlas por fases, con cambios pequeños y verificables.
+
+Este roadmap es una guía de planificación. No sustituye a las instrucciones operativas del repositorio ni debe aplicarse automáticamente en tareas pequeñas o no relacionadas.
+
+## Estrategia de idiomas
+
+La web debería tener el español como idioma principal y el inglés como idioma alternativo.
+
+Estructura recomendada:
+
+- Español: `https://davidrojo.eu/`
+- Inglés: `https://davidrojo.eu/en/`
+
+No se recomienda tener una única página HTML que cambie todos los textos solo con JavaScript, porque perjudica la indexación, complica las metadatos por idioma y dificulta tener URLs compartibles correctamente.
+
+La mejor opción es mantener una única fuente o plantilla y generar dos HTML estáticos finales:
+
+- `/index.html` para español.
+- `/en/index.html` para inglés.
+
+Cada idioma debería tener:
+
+- Atributo `lang` correcto.
+- Título propio.
+- `meta description` propia.
+- URL canonical.
+- Enlaces `hreflang` entre idiomas.
+- `hreflang="x-default"` apuntando a la home en español.
+- Metadatos sociales propios si se añaden Open Graph o Twitter Cards.
+
+Ejemplo para la versión española:
+
+```html
+<html lang="es">
+<link rel="canonical" href="https://davidrojo.eu/">
+<link rel="alternate" hreflang="es" href="https://davidrojo.eu/">
+<link rel="alternate" hreflang="en" href="https://davidrojo.eu/en/">
+<link rel="alternate" hreflang="x-default" href="https://davidrojo.eu/">
+```
+
+Ejemplo para la versión inglesa:
+
+```html
+<html lang="en">
+<link rel="canonical" href="https://davidrojo.eu/en/">
+<link rel="alternate" hreflang="es" href="https://davidrojo.eu/">
+<link rel="alternate" hreflang="en" href="https://davidrojo.eu/en/">
+<link rel="alternate" hreflang="x-default" href="https://davidrojo.eu/">
+```
+
+## Arquitectura actual
+
+El proyecto actual es una web estática clásica basada en una plantilla HTML personalizada.
+
+Componentes principales:
+
+- `index.html`: versión inglesa actual.
+- `spanish.html`: versión española actual.
+- `css/`: estilos compilados y librerías CSS.
+- `less/`: fuentes LESS heredadas de la plantilla.
+- `js/`: jQuery, plugins de plantilla y `main.js`.
+- `images/`: foto, logos, fondo, banderas y favicon.
+- `fontawesome/`: distribución completa de FontAwesome.
+- `fonts/`: fuentes de Ionicons.
+- `mailer/`: código PHP de PHPMailer heredado.
+- `.htaccess`: reglas para URLs sin extensión y actualización de peticiones inseguras.
+- `CNAME`: dominio personalizado.
+
+Problemas estructurales actuales:
+
+- Duplicación casi completa entre los dos HTML.
+- Muchas dependencias vendorizadas sin uso claro.
+- Sin pipeline de build.
+- Sin validación automática de HTML, CSS, accesibilidad o rendimiento.
+- Mezcla de contenido, estructura, estilos inline y comportamiento JS.
+
+## Problemas detectados
+
+### SEO
+
+- `meta description` vacío en ambas páginas.
+- `meta keywords` vacío y obsoleto.
+- La página española declara `lang="en"` en lugar de `lang="es"`.
+- Falta `canonical`.
+- Falta `hreflang` entre español e inglés.
+- Falta `hreflang="x-default"`.
+- No hay Open Graph ni Twitter Cards.
+- No hay datos estructurados JSON-LD.
+- No hay `robots.txt` ni `sitemap.xml`.
+- Las dos páginas comparten el mismo título.
+- La jerarquía semántica es débil: no hay un `<h1>` claro.
+- Muchos títulos visuales son `div` en lugar de encabezados reales.
+- Muchas imágenes informativas tienen `alt=""`.
+
+### Lighthouse y rendimiento
+
+- `images/bg/galaxy.png` pesa aproximadamente 3,4 MB.
+- Se carga FontAwesome completo mediante `fontawesome/js/all.min.js`, con un peso muy alto para pocos iconos.
+- Google Fonts carga demasiados pesos y variantes de Roboto.
+- Se cargan librerías que parecen no estar en uso o solo parcialmente:
+  - YTPlayer.
+  - Owl Carousel.
+  - Google Maps JS API.
+  - Validación de formularios.
+  - Código de blog.
+- Hay un iframe de Google Maps y además código JS para Google Maps API.
+- El script de Google Maps usa `http://`.
+- Falta `loading="lazy"` en imágenes e iframe no críticos.
+- Faltan dimensiones explícitas en varias imágenes.
+- El preloader puede empeorar la percepción de carga.
+- Las animaciones y revelados pueden retrasar la visualización útil.
+
+### Accesibilidad
+
+- Falta un `<h1>` principal claro.
+- La jerarquía de encabezados no representa correctamente la estructura.
+- El botón de menú es un enlace sin nombre accesible suficiente.
+- Los enlaces solo con icono dependen de `title` o no tienen nombre accesible robusto.
+- Los formularios usan placeholders en lugar de etiquetas asociadas.
+- El botón de envío del formulario es un enlace con `onclick`.
+- El iframe de Google Maps no tiene `title`.
+- Muchos enlaces externos usan `target="_blank"` sin `rel="noopener noreferrer"`.
+- Algunos enlaces usan `target="blank"` en lugar de `target="_blank"`.
+- Las barras de progreso transmiten información visual sin semántica accesible.
+- Los filtros de clientes no tienen `fieldset` ni `legend`.
+- No hay enlace de salto al contenido principal.
+- Debe revisarse contraste y estados de foco visibles.
+- Las animaciones deberían respetar mejor `prefers-reduced-motion`.
+
+### Diseño y experiencia de usuario
+
+- El selector de idioma es poco visible.
+- La navegación lateral puede resultar poco evidente en escritorio.
+- El formulario de contacto puede generar falsa expectativa si no funciona de forma fiable.
+- El mapa ocupa espacio y añade carga externa con poco valor práctico.
+- La sección de clientes usa popups con poca información adicional.
+- Los porcentajes de habilidades pueden parecer arbitrarios.
+- En la versión española quedan textos en inglés como `All` y `View Web`.
+- Hay contenido repetido entre experiencia y clientes.
+- El diseño conserva rasgos de plantilla antigua.
+
+### Código muerto, duplicado o innecesario
+
+- Duplicación casi total entre `index.html` y `spanish.html`.
+- Código de YTPlayer sin elemento `#video-bg` aparente.
+- Código de Google Maps para `#map`, aunque se usa un iframe.
+- Código de `#blog-form` sin formulario de blog aparente.
+- Inicialización de carrusel si no hay carrusel real.
+- `js/ionicons.js` presente pero comentado.
+- `default.php` parece residual del hosting.
+- `mailer/` contiene configuración de plantilla y destinatario no relacionado.
+- FontAwesome incluye CSS, JS, LESS, SCSS, metadata, sprites, SVGs y webfonts completos.
+- `less/` puede estar obsoleto si no se recompila CSS.
+- Scripts condicionales para IE9 por HTTP son obsoletos.
+
+### Riesgos técnicos
+
+- Formulario frágil en entorno estático.
+- PHP mailer sin sanitización robusta, sin CSRF, sin rate limiting y con configuración de plantilla.
+- En español, los nombres de campos no coinciden con lo esperado por `main.js`.
+- jQuery 2.1.4 es antiguo.
+- Dependencias vendorizadas sin versiones ni proceso de actualización claro.
+- Posible falta de efecto de `.htaccess` si el despliegue es GitHub Pages.
+- Google Analytics usa Universal Analytics (`UA-*`), tecnología retirada.
+- Uso de servicios de terceros sin documentación de privacidad o consentimiento.
+- Duplicar contenido entre idiomas aumenta el riesgo de cambios inconsistentes.
+
+## Roadmap por fases
+
+### Fase 1: SEO e idiomas
+
+Objetivo: que la web tenga una estructura correcta para buscadores y usuarios.
+
+Tareas recomendadas:
+
+- Hacer que el español sea la página principal en `/`.
+- Mover o generar la versión inglesa en `/en/`.
+- Corregir `lang` en cada idioma.
+- Añadir `title` y `meta description` específicos por idioma.
+- Añadir canonical y `hreflang`.
+- Añadir `robots.txt`.
+- Añadir `sitemap.xml`.
+- Añadir Open Graph y Twitter Cards.
+- Añadir JSON-LD con `Person` o `ProfilePage`.
+- Normalizar enlaces del selector de idioma.
+
+### Fase 2: Rendimiento
+
+Objetivo: reducir peso, mejorar Lighthouse y hacer la carga más rápida.
+
+Tareas recomendadas:
+
+- Optimizar `images/bg/galaxy.png`.
+- Convertir imágenes grandes a WebP o AVIF.
+- Añadir dimensiones a imágenes.
+- Añadir `loading="lazy"` a imágenes e iframe no críticos.
+- Eliminar Google Maps JS API si se mantiene solo el iframe.
+- Cargar el mapa solo bajo demanda o sustituirlo por texto/enlace.
+- Reducir Google Fonts a pesos estrictamente necesarios.
+- Añadir `display=swap` y `preconnect` si se mantienen Google Fonts.
+- Sustituir FontAwesome completo por iconos mínimos o SVG inline.
+- Eliminar librerías no usadas.
+
+### Fase 3: Accesibilidad
+
+Objetivo: mejorar navegación, semántica y compatibilidad con tecnologías de asistencia.
+
+Tareas recomendadas:
+
+- Añadir un `<h1>` principal.
+- Convertir títulos de sección a `<h2>`.
+- Usar `<main>`, `<nav>`, `<section>` y `<footer>` correctamente.
+- Convertir el menú hamburguesa en botón accesible.
+- Añadir nombres accesibles a enlaces con iconos.
+- Corregir `target="_blank"` con `rel="noopener noreferrer"`.
+- Añadir labels a campos de formulario.
+- Sustituir el enlace de envío por `<button type="submit">`.
+- Añadir `title` al iframe.
+- Revisar foco visible y navegación por teclado.
+- Revisar contraste.
+- Respetar `prefers-reduced-motion`.
+
+### Fase 4: Limpieza técnica
+
+Objetivo: eliminar código y dependencias heredadas que no aportan valor.
+
+Tareas recomendadas:
+
+- Eliminar YTPlayer si no hay vídeo.
+- Eliminar Owl Carousel si no hay carrusel.
+- Eliminar Google Maps JS API y código `initMap` si no se usa.
+- Eliminar código de blog si no hay blog.
+- Revisar necesidad de Masonry, ImagesLoaded y Magnific Popup.
+- Eliminar o reemplazar `mailer/` si no hay backend PHP real.
+- Eliminar `default.php` si no tiene función en producción.
+- Eliminar assets de FontAwesome no usados.
+- Revisar si `less/` debe mantenerse o eliminarse.
+
+### Fase 5: Mantenibilidad e i18n
+
+Objetivo: dejar de mantener dos HTML manualmente.
+
+Opciones:
+
+- Script de build mínimo con una plantilla HTML y ficheros de datos por idioma.
+- Astro como generador estático ligero.
+- Eleventy como generador estático simple.
+- Mantener dos HTML manuales temporalmente, pero solo como solución provisional.
+
+Opción recomendada a medio plazo:
+
+```text
+src/
+  data/
+    es.json
+    en.json
+  template.html
+  build.js
+
+dist/
+  index.html
+  en/
+    index.html
+```
+
+Alternativa con Astro:
+
+```text
+src/
+  pages/
+    index.astro
+    en/index.astro
+  components/
+    Layout.astro
+    Hero.astro
+    Skills.astro
+    Experience.astro
+  i18n/
+    es.ts
+    en.ts
+```
+
+### Fase 6: Diseño y experiencia de usuario
+
+Objetivo: modernizar la experiencia sin perder la identidad profesional.
+
+Tareas recomendadas:
+
+- Hacer el selector de idioma más visible.
+- Mejorar navegación en escritorio y móvil.
+- Replantear la sección inicial para destacar perfil, especialidad y contacto.
+- Simplificar o eliminar popups de clientes.
+- Sustituir porcentajes de habilidades por categorías, experiencia o niveles más claros.
+- Reducir el peso visual de elementos heredados de plantilla.
+- Revisar copy y consistencia entre idiomas.
+- Eliminar el mapa si no aporta valor claro.
+
+## Top 20 mejoras priorizadas
+
+| # | Mejora | Impacto | Esfuerzo |
+|---:|---|---|---|
+| 1 | Poner español en `/` e inglés en `/en/` | Alto | Medio |
+| 2 | Añadir `meta description`, canonical, `hreflang` y `lang` correcto | Alto | Bajo |
+| 3 | Optimizar `images/bg/galaxy.png` | Alto | Bajo |
+| 4 | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
+| 5 | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
+| 6 | Corregir o simplificar el formulario de contacto | Alto | Medio |
+| 7 | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
+| 8 | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
+| 9 | Añadir labels, botones reales y nombres accesibles | Alto | Medio |
+| 10 | Eliminar librerías no usadas | Alto | Bajo |
+| 11 | Reducir Google Fonts y añadir `display=swap` | Medio-Alto | Bajo |
+| 12 | Añadir lazy loading a imágenes e iframe | Medio-Alto | Bajo |
+| 13 | Añadir dimensiones y `alt` adecuados en imágenes | Medio-Alto | Bajo |
+| 14 | Añadir JSON-LD `Person` o `ProfilePage` | Medio-Alto | Bajo |
+| 15 | Crear `robots.txt` y `sitemap.xml` | Medio | Bajo |
+| 16 | Eliminar `default.php`, LESS no usado y assets residuales | Medio | Bajo-Medio |
+| 17 | Normalizar rutas y enlaces internos | Medio | Medio |
+| 18 | Reemplazar popups complejos por tarjetas más simples | Medio | Medio |
+| 19 | Revisar contraste, foco y reducción de movimiento | Medio | Medio |
+| 20 | Introducir una plantilla o generador estático para evitar duplicación | Medio | Alto |
+
+## Criterio de ejecución recomendado
+
+No acometer todo a la vez. La secuencia más razonable es:
+
+1. Corregir SEO e idiomas.
+2. Optimizar assets y eliminar scripts claramente innecesarios.
+3. Mejorar accesibilidad básica.
+4. Limpiar dependencias y ficheros residuales.
+5. Introducir generación estática si se quiere reducir duplicación.
+6. Rediseñar o modernizar UX cuando la base técnica esté más limpia.

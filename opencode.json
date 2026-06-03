@@ -1,0 +1,22 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "instructions": [
+        "Este repositorio contiene una web personal estatica.",
+        "Prioriza cambios pequenos, claros e incrementales.",
+        "Responder y trabajar siempre en español de España.",
+        "Explicar brevemente las decisiones técnicas importantes.",
+        "Priorizar soluciones simples y mantenibles.",
+        "Antes de proponer cambios, analizar la estructura actual del proyecto.",
+        "No introduzcas frameworks ni dependencias nuevas salvo peticion explicita.",
+        "Preserva el contenido existente y no elimines ficheros, assets o dependencias vendorizadas sin verificar antes su uso.",
+        "Antes de cambiar SEO, idiomas, estructura, scripts o estilos globales, revisa el impacto en todas las versiones de idioma.",
+        "No modificar secretos, credenciales o configuraciones sensibles.",
+        "No ejecutar git push.",
+        "No crear commits automáticamente.",
+        "Preguntar antes de realizar cambios destructivos o refactorizaciones grandes."
+    ],
+    "permission": {
+        "edit": "allow",
+        "bash": "ask"
+    }
+}
