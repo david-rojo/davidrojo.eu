@@ -125,7 +125,7 @@ El repositorio contiene librerías y assets heredados de plantilla.
 
 ## Roadmap
 
-`ROADMAP.md` es un documento de referencia y planificación. No debe tratarse como una instrucción obligatoria para cualquier cambio pequeño.
+`doc/ROADMAP.md` es un documento de referencia y planificación. No debe tratarse como una instrucción obligatoria para cualquier cambio pequeño.
 
 Consultarlo cuando se vayan a tomar decisiones no triviales sobre arquitectura, SEO, idiomas, rendimiento, accesibilidad, limpieza técnica o experiencia de usuario.
 

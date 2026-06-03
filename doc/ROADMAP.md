@@ -8,6 +8,10 @@ Este documento no implica que las mejoras deban acometerse de una sola vez. La r
 
 Este roadmap es una guía de planificación. No sustituye a las instrucciones operativas del repositorio ni debe aplicarse automáticamente en tareas pequeñas o no relacionadas.
 
+## Cambios ya realizados
+
+- Sustituido Universal Analytics por Google Analytics 4 en las páginas actuales.
+
 ## Estrategia de idiomas
 
 La web debería tener el español como idioma principal y el inglés como idioma alternativo.
@@ -167,7 +171,7 @@ Problemas estructurales actuales:
 - jQuery 2.1.4 es antiguo.
 - Dependencias vendorizadas sin versiones ni proceso de actualización claro.
 - Posible falta de efecto de `.htaccess` si el despliegue es GitHub Pages.
-- Google Analytics usa Universal Analytics (`UA-*`), tecnología retirada.
+- Google Analytics usa GA4, pero queda pendiente revisar privacidad, cookies y consentimiento si se mantiene tracking.
 - Uso de servicios de terceros sin documentación de privacidad o consentimiento.
 - Duplicar contenido entre idiomas aumenta el riesgo de cambios inconsistentes.
 
