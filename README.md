@@ -18,7 +18,7 @@ Open:
 
 ```text
 http://localhost:8000/
-http://localhost:8000/spanish.html
+http://localhost:8000/en/
 ```
 
 ### Using Docker Compose
@@ -31,12 +31,14 @@ Open:
 
 ```text
 http://localhost:8080/
-http://localhost:8080/spanish.html
+http://localhost:8080/en/
 ```
 
 Stop the server with `Ctrl + C`.
 
-Note: extensionless URLs like `/spanish` depend on the Apache `.htaccess` configuration used in production. The basic local servers above should use `/spanish.html`.
+Spanish is served from `/` and English from `/en/`.
+
+Note: extensionless URLs like `/spanish` depend on the Apache `.htaccess` configuration used in production.
 
 ## .htaccess file
 
