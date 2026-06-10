@@ -11,6 +11,13 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 ## Cambios ya realizados
 
 - Sustituido Universal Analytics por Google Analytics 4 en las páginas actuales.
+- Establecido el español como página principal en `/` mediante `index.html`.
+- Añadida la versión inglesa en `/en/` mediante `en/index.html`.
+- Corregidos `lang`, `title`, `meta description`, canonical y `hreflang` por idioma.
+- Añadidos `robots.txt` y `sitemap.xml` mínimos.
+- Añadidos Open Graph y Twitter Cards localizados por idioma.
+- Añadido JSON-LD mínimo con `ProfilePage` y `Person`.
+- Eliminado `meta keywords` vacío de las páginas principales.
 
 ## Estrategia de idiomas
 
@@ -64,8 +71,9 @@ El proyecto actual es una web estática clásica basada en una plantilla HTML pe
 
 Componentes principales:
 
-- `index.html`: versión inglesa actual.
-- `spanish.html`: versión española actual.
+- `index.html`: versión española actual.
+- `en/index.html`: versión inglesa actual.
+- `spanish.html`: versión española heredada pendiente de revisar o retirar.
 - `css/`: estilos compilados y librerías CSS.
 - `less/`: fuentes LESS heredadas de la plantilla.
 - `js/`: jQuery, plugins de plantilla y `main.js`.
@@ -88,16 +96,8 @@ Problemas estructurales actuales:
 
 ### SEO
 
-- `meta description` vacío en ambas páginas.
-- `meta keywords` vacío y obsoleto.
-- La página española declara `lang="en"` en lugar de `lang="es"`.
-- Falta `canonical`.
-- Falta `hreflang` entre español e inglés.
-- Falta `hreflang="x-default"`.
-- No hay Open Graph ni Twitter Cards.
-- No hay datos estructurados JSON-LD.
-- No hay `robots.txt` ni `sitemap.xml`.
-- Las dos páginas comparten el mismo título.
+- La versión heredada `spanish.html` debe revisarse para decidir si se retira, redirige o conserva.
+- Las dos páginas principales comparten el mismo título, aunque tienen `meta description` localizada.
 - La jerarquía semántica es débil: no hay un `<h1>` claro.
 - Muchos títulos visuales son `div` en lugar de encabezados reales.
 - Muchas imágenes informativas tienen `alt=""`.
@@ -183,16 +183,16 @@ Objetivo: que la web tenga una estructura correcta para buscadores y usuarios.
 
 Tareas recomendadas:
 
-- Hacer que el español sea la página principal en `/`.
-- Mover o generar la versión inglesa en `/en/`.
-- Corregir `lang` en cada idioma.
-- Añadir `title` y `meta description` específicos por idioma.
-- Añadir canonical y `hreflang`.
-- Añadir `robots.txt`.
-- Añadir `sitemap.xml`.
-- Añadir Open Graph y Twitter Cards.
-- Añadir JSON-LD con `Person` o `ProfilePage`.
-- Normalizar enlaces del selector de idioma.
+- Hecho: hacer que el español sea la página principal en `/`.
+- Hecho: mover o generar la versión inglesa en `/en/`.
+- Hecho: corregir `lang` en cada idioma.
+- Hecho: añadir `title` y `meta description` específicos por idioma.
+- Hecho: añadir canonical y `hreflang`.
+- Hecho: añadir `robots.txt`.
+- Hecho: añadir `sitemap.xml`.
+- Hecho: añadir Open Graph y Twitter Cards.
+- Hecho: añadir JSON-LD con `Person` o `ProfilePage`.
+- Hecho: normalizar enlaces del selector de idioma.
 
 ### Fase 2: Rendimiento
 
@@ -307,28 +307,28 @@ Tareas recomendadas:
 
 ## Top 20 mejoras priorizadas
 
-| # | Mejora | Impacto | Esfuerzo |
-|---:|---|---|---|
-| 1 | Poner español en `/` e inglés en `/en/` | Alto | Medio |
-| 2 | Añadir `meta description`, canonical, `hreflang` y `lang` correcto | Alto | Bajo |
-| 3 | Optimizar `images/bg/galaxy.png` | Alto | Bajo |
-| 4 | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
-| 5 | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
-| 6 | Corregir o simplificar el formulario de contacto | Alto | Medio |
-| 7 | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
-| 8 | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
-| 9 | Añadir labels, botones reales y nombres accesibles | Alto | Medio |
-| 10 | Eliminar librerías no usadas | Alto | Bajo |
-| 11 | Reducir Google Fonts y añadir `display=swap` | Medio-Alto | Bajo |
-| 12 | Añadir lazy loading a imágenes e iframe | Medio-Alto | Bajo |
-| 13 | Añadir dimensiones y `alt` adecuados en imágenes | Medio-Alto | Bajo |
-| 14 | Añadir JSON-LD `Person` o `ProfilePage` | Medio-Alto | Bajo |
-| 15 | Crear `robots.txt` y `sitemap.xml` | Medio | Bajo |
-| 16 | Eliminar `default.php`, LESS no usado y assets residuales | Medio | Bajo-Medio |
-| 17 | Normalizar rutas y enlaces internos | Medio | Medio |
-| 18 | Reemplazar popups complejos por tarjetas más simples | Medio | Medio |
-| 19 | Revisar contraste, foco y reducción de movimiento | Medio | Medio |
-| 20 | Introducir una plantilla o generador estático para evitar duplicación | Medio | Alto |
+| # | Estado | Mejora | Impacto | Esfuerzo |
+|---:|---|---|---|---|
+| 1 | Hecho | Poner español en `/` e inglés en `/en/` | Alto | Medio |
+| 2 | Hecho | Añadir `meta description`, canonical, `hreflang` y `lang` correcto | Alto | Bajo |
+| 3 | Pendiente | Optimizar `images/bg/galaxy.png` | Alto | Bajo |
+| 4 | Pendiente | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
+| 5 | Pendiente | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
+| 6 | Pendiente | Corregir o simplificar el formulario de contacto | Alto | Medio |
+| 7 | Pendiente | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
+| 8 | Pendiente | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
+| 9 | Pendiente | Añadir labels, botones reales y nombres accesibles | Alto | Medio |
+| 10 | Pendiente | Eliminar librerías no usadas | Alto | Bajo |
+| 11 | Pendiente | Reducir Google Fonts y añadir `display=swap` | Medio-Alto | Bajo |
+| 12 | Pendiente | Añadir lazy loading a imágenes e iframe | Medio-Alto | Bajo |
+| 13 | Pendiente | Añadir dimensiones y `alt` adecuados en imágenes | Medio-Alto | Bajo |
+| 14 | Hecho | Añadir JSON-LD `Person` o `ProfilePage` | Medio-Alto | Bajo |
+| 15 | Hecho | Crear `robots.txt` y `sitemap.xml` | Medio | Bajo |
+| 16 | Pendiente | Eliminar `default.php`, LESS no usado y assets residuales | Medio | Bajo-Medio |
+| 17 | Pendiente | Normalizar rutas y enlaces internos | Medio | Medio |
+| 18 | Pendiente | Reemplazar popups complejos por tarjetas más simples | Medio | Medio |
+| 19 | Pendiente | Revisar contraste, foco y reducción de movimiento | Medio | Medio |
+| 20 | Pendiente | Introducir una plantilla o generador estático para evitar duplicación | Medio | Alto |
 
 ## Criterio de ejecución recomendado
 
