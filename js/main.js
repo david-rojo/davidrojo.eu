@@ -8,6 +8,7 @@ $(function () {
 	
 	var width = $(window).width();
 	var height = $(window).height();
+	$('.current-year').text(new Date().getFullYear());
 	
 	/* Preloader */
 	$(window).on('load', function() {
