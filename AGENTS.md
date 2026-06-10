@@ -16,6 +16,18 @@ La estrategia recomendada a futuro es:
 - Mantener una única fuente o plantilla siempre que sea posible.
 - Generar dos páginas HTML estáticas finales para conservar buen SEO.
 
+## Publicación y hosting
+
+- La web se publica mediante GitHub Pages.
+- El dominio `davidrojo.eu` se gestiona en Hostinger.
+- No asumir que el servidor de producción ejecuta PHP.
+- No asumir que `.htaccess` tiene efecto en producción si el tráfico se sirve desde GitHub Pages.
+- Las rutas deben funcionar como sitio estático compatible con GitHub Pages.
+- Para redirecciones en GitHub Pages, preferir soluciones compatibles con HTML estático o configuración propia de GitHub Pages, no reglas Apache.
+- La estructura principal esperada es:
+  - Español: `https://davidrojo.eu/`
+  - Inglés: `https://davidrojo.eu/en/`
+
 ## Reglas generales
 
 - No introducir frameworks salvo petición explícita.
@@ -100,7 +112,7 @@ La estrategia recomendada a futuro es:
 ## Formularios y contacto
 
 - El formulario actual puede ser frágil en un entorno estático.
-- No asumir que el hosting soporta PHP.
+- No asumir soporte PHP en producción: la publicación principal se realiza como sitio estático en GitHub Pages.
 - Si se mejora el contacto, preferir una solución simple y fiable:
   - enlace `mailto:`
   - servicio externo aprobado
