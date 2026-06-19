@@ -75,6 +75,21 @@
 	text-decoration: underline;
 	color: #ffffff;
 }
+
+.section.contacts .contact-row {
+	display: flex;
+	justify-content: center;
+}
+
+.section.contacts .contact-info-card {
+	float: none;
+}
+
+@media (max-width: 720px) {
+	.section.contacts .contact-row {
+		display: block;
+	}
+}
 /*
 li:before {
 	content: "• "; 

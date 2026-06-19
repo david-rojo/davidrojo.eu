@@ -18,6 +18,10 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Añadidos Open Graph y Twitter Cards localizados por idioma.
 - Añadido JSON-LD mínimo con `ProfilePage` y `Person`.
 - Eliminado `meta keywords` vacío de las páginas principales.
+- Configurada publicación mediante GitHub Actions para GitHub Pages.
+- Actualizada la referencia del favicon a `favicon_dr.ico`.
+- Simplificada la sección de contacto eliminando el formulario visible.
+- Añadido `title` y `loading="lazy"` al iframe de Google Maps.
 
 ## Estrategia de idiomas
 
@@ -115,7 +119,7 @@ Problemas estructurales actuales:
   - Código de blog.
 - Hay un iframe de Google Maps y además código JS para Google Maps API.
 - El script de Google Maps usa `http://`.
-- Falta `loading="lazy"` en imágenes e iframe no críticos.
+- Falta `loading="lazy"` en imágenes no críticas y debe revisarse si quedan iframes sin carga diferida.
 - Faltan dimensiones explícitas en varias imágenes.
 - El preloader puede empeorar la percepción de carga.
 - Las animaciones y revelados pueden retrasar la visualización útil.
@@ -126,9 +130,8 @@ Problemas estructurales actuales:
 - La jerarquía de encabezados no representa correctamente la estructura.
 - El botón de menú es un enlace sin nombre accesible suficiente.
 - Los enlaces solo con icono dependen de `title` o no tienen nombre accesible robusto.
-- Los formularios usan placeholders en lugar de etiquetas asociadas.
-- El botón de envío del formulario es un enlace con `onclick`.
-- El iframe de Google Maps no tiene `title`.
+- El formulario visible se ha eliminado, pero queda pendiente limpiar código JS y assets relacionados.
+- El iframe de Google Maps ya tiene `title` en las páginas principales, pero conviene mantener esta regla en futuros iframes.
 - Muchos enlaces externos usan `target="_blank"` sin `rel="noopener noreferrer"`.
 - Algunos enlaces usan `target="blank"` en lugar de `target="_blank"`.
 - Las barras de progreso transmiten información visual sin semántica accesible.
@@ -141,7 +144,7 @@ Problemas estructurales actuales:
 
 - El selector de idioma es poco visible.
 - La navegación lateral puede resultar poco evidente en escritorio.
-- El formulario de contacto puede generar falsa expectativa si no funciona de forma fiable.
+- La sección de contacto ya no muestra formulario visible; queda pendiente limpiar el código heredado relacionado.
 - El mapa ocupa espacio y añade carga externa con poco valor práctico.
 - La sección de clientes usa popups con poca información adicional.
 - Los porcentajes de habilidades pueden parecer arbitrarios.
@@ -167,7 +170,7 @@ Problemas estructurales actuales:
 
 - Formulario frágil en entorno estático.
 - PHP mailer sin sanitización robusta, sin CSRF, sin rate limiting y con configuración de plantilla.
-- En español, los nombres de campos no coinciden con lo esperado por `main.js`.
+- Aunque el formulario visible se ha eliminado, `main.js` aún contiene lógica heredada de envío y validación de formulario.
 - jQuery 2.1.4 es antiguo.
 - Dependencias vendorizadas sin versiones ni proceso de actualización claro.
 - Posible falta de efecto de `.htaccess` si el despliegue es GitHub Pages.
@@ -223,9 +226,9 @@ Tareas recomendadas:
 - Convertir el menú hamburguesa en botón accesible.
 - Añadir nombres accesibles a enlaces con iconos.
 - Corregir `target="_blank"` con `rel="noopener noreferrer"`.
-- Añadir labels a campos de formulario.
-- Sustituir el enlace de envío por `<button type="submit">`.
-- Añadir `title` al iframe.
+- Si se reintroduce un formulario, añadir labels a campos de formulario.
+- Si se reintroduce un formulario, sustituir el enlace de envío por `<button type="submit">`.
+- Hecho: añadir `title` al iframe de Google Maps en las páginas principales.
 - Revisar foco visible y navegación por teclado.
 - Revisar contraste.
 - Respetar `prefers-reduced-motion`.
@@ -314,13 +317,13 @@ Tareas recomendadas:
 | 3 | Pendiente | Optimizar `images/bg/galaxy.png` | Alto | Bajo |
 | 4 | Pendiente | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
 | 5 | Pendiente | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
-| 6 | Pendiente | Corregir o simplificar el formulario de contacto | Alto | Medio |
+| 6 | Hecho parcial | Simplificar el formulario de contacto visible | Alto | Medio |
 | 7 | Pendiente | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
 | 8 | Pendiente | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
 | 9 | Pendiente | Añadir labels, botones reales y nombres accesibles | Alto | Medio |
 | 10 | Pendiente | Eliminar librerías no usadas | Alto | Bajo |
 | 11 | Pendiente | Reducir Google Fonts y añadir `display=swap` | Medio-Alto | Bajo |
-| 12 | Pendiente | Añadir lazy loading a imágenes e iframe | Medio-Alto | Bajo |
+| 12 | Hecho parcial | Añadir lazy loading a imágenes e iframe | Medio-Alto | Bajo |
 | 13 | Pendiente | Añadir dimensiones y `alt` adecuados en imágenes | Medio-Alto | Bajo |
 | 14 | Hecho | Añadir JSON-LD `Person` o `ProfilePage` | Medio-Alto | Bajo |
 | 15 | Hecho | Crear `robots.txt` y `sitemap.xml` | Medio | Bajo |

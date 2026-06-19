@@ -113,14 +113,15 @@ La estrategia recomendada a futuro es:
 
 ## Formularios y contacto
 
-- El formulario actual puede ser frágil en un entorno estático.
+- La sección de contacto actual no muestra formulario; usa enlaces directos como `mailto:` y LinkedIn.
 - No asumir soporte PHP en producción: la publicación principal se realiza como sitio estático en GitHub Pages.
+- No reintroducir formularios que dependan de PHP en GitHub Pages.
 - Si se mejora el contacto, preferir una solución simple y fiable:
   - enlace `mailto:`
   - servicio externo aprobado
   - backend explícitamente definido
 - Nunca añadir credenciales SMTP, API keys ni secretos al repositorio.
-- Si se mantiene un formulario, validar tanto cliente como servidor cuando aplique.
+- Si se añade un formulario en el futuro, debe usar una solución compatible con sitio estático o un backend explícito.
 
 ## Dependencias y ficheros vendorizados
 
@@ -162,7 +163,7 @@ Después de realizar cambios, comprobar según aplique:
 - `lang`, canonical y `hreflang` son correctos.
 - No hay errores evidentes en consola.
 - No hay rutas rotas a assets locales.
-- Los formularios mantienen el comportamiento esperado.
+- La sección de contacto mantiene enlaces funcionales y el mapa carga correctamente.
 - La navegación por teclado sigue funcionando.
 - Los enlaces con `target="_blank"` incluyen `rel="noopener noreferrer"`.
 - Las imágenes tienen `alt` adecuado.
