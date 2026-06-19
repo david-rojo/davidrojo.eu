@@ -26,6 +26,7 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Eliminada la carga de Google Maps JS API y el código `initMap`, manteniendo el mapa como iframe.
 - Eliminado YTPlayer al no existir vídeo de fondo ni elemento `#video-bg`.
 - Eliminado Owl Carousel al no existir carrusel activo en el HTML.
+- Eliminada la página heredada `spanish.html`; el español queda servido desde `/`.
 - Añadido `title` y `loading="lazy"` al iframe de Google Maps.
 
 ## Estrategia de idiomas
@@ -82,7 +83,6 @@ Componentes principales:
 
 - `index.html`: versión española actual.
 - `en/index.html`: versión inglesa actual.
-- `spanish.html`: versión española heredada pendiente de revisar o retirar.
 - `css/`: estilos compilados y librerías CSS.
 - `less/`: fuentes LESS heredadas de la plantilla.
 - `js/`: jQuery, plugins de plantilla y `main.js`.
@@ -104,7 +104,7 @@ Problemas estructurales actuales:
 
 ### SEO
 
-- La versión heredada `spanish.html` debe revisarse para decidir si se retira, redirige o conserva.
+- La versión heredada `spanish.html` se ha eliminado; la URL española principal es `/`.
 - Las dos páginas principales comparten el mismo título, aunque tienen `meta description` localizada.
 - La jerarquía semántica es débil: no hay un `<h1>` claro.
 - Muchos títulos visuales son `div` en lugar de encabezados reales.
@@ -154,7 +154,7 @@ Problemas estructurales actuales:
 
 ### Código muerto, duplicado o innecesario
 
-- Duplicación casi total entre `index.html` y `spanish.html`.
+- La duplicación entre `index.html` y `spanish.html` se ha eliminado retirando la página heredada.
 - El código de YTPlayer se ha eliminado al no existir elemento `#video-bg`.
 - El código de Google Maps para `#map` se ha eliminado; se mantiene el iframe.
 - Código de `#blog-form` sin formulario de blog aparente.
