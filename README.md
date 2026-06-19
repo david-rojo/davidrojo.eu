@@ -1,6 +1,6 @@
 # Introduction
 
-You can edit any page with a simple text editor. When you commit the changes to the repository, the web page will be updated automatically.
+You can edit any page with a simple text editor. When you push changes to `main`, the web page is published automatically through GitHub Actions.
 
 It has been developed using html5, css, javascript, bootstrap, php and jquery
 
@@ -38,11 +38,23 @@ Stop the server with `Ctrl + C`.
 
 Spanish is served from `/` and English from `/en/`.
 
-Note: extensionless URLs like `/spanish` depend on the Apache `.htaccess` configuration used in production.
+Note: GitHub Pages does not process `.htaccess`, so production URLs should use real static paths such as `/` and `/en/`.
 
-## .htaccess file
+## Deployment
 
-File is used in order to allow that html files can be used as links without extensions, for example: [https://davidrojo.eu/spanish](https://davidrojo.eu/spanish)
+The site is published with GitHub Pages using GitHub Actions.
+
+Workflow:
+
+```text
+.github/workflows/deploy.yml
+```
+
+The workflow runs on pushes to `main` and can also be triggered manually from GitHub Actions.
+
+GitHub Pages must be configured with:
+
+The static site is currently uploaded from the repository root.
 
 ## Customization
 

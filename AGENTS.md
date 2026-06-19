@@ -18,7 +18,9 @@ La estrategia recomendada a futuro es:
 
 ## Publicación y hosting
 
-- La web se publica mediante GitHub Pages.
+- La web se publica mediante GitHub Pages usando GitHub Actions.
+- El workflow de publicación está en `.github/workflows/deploy.yml`.
+- En GitHub Pages, la fuente debe estar configurada como `GitHub Actions`, no `Deploy from a branch`.
 - El dominio `davidrojo.eu` se gestiona en Hostinger.
 - No asumir que el servidor de producción ejecuta PHP.
 - No asumir que `.htaccess` tiene efecto en producción si el tráfico se sirve desde GitHub Pages.
