@@ -24,9 +24,6 @@ $(function () {
 		sr.reveal('.animated');
 	}
 
-	/* Youtube video background */
-	var myPlayer = $("#video-bg").YTPlayer();
-
 	/* Smoothscroll */
 	if($('#home-section').length) {
 		$(window).on('scroll', function(){
@@ -82,19 +79,6 @@ $(function () {
 		}
 	});
 
-	/* Clients carousel */
-	$(".reviews-carousel .owl-carousel").owlCarousel({
-		items: 1,
-		margin: 0,
-		nav: false,
-		dots: true,
-		loop: false,
-		smartSpeed: 600,
-		mouseDrag: true,
-		touchDrag: true,
-		autoplay: false
-	});
-
 	/* Button hover effect */
 	$('.btn_animated').on('mouseenter', '.circle', function(e){
 		if ($(this).find(".ink").length === 0) {
@@ -115,65 +99,6 @@ $(function () {
 			top: y + 'px',
 			left: x + 'px'
 		}).addClass("animate");
-	});
-	
-	/* Validate contact form */
-	$("#cform").validate({
-		rules: {
-			name: {
-				required: true
-			},
-			message: {
-				required: true
-			},
-			subject: {
-				required: true
-			},
-			email: {
-				required: true,
-				email: true
-			}
-		},
-		success: "valid",
-		submitHandler: function() {
-			$.ajax({
-				url: 'mailer/feedback.php',
-				type: 'post',
-				dataType: 'json',
-				data: 'name='+ $("#cform").find('input[name="name"]').val() + '&email='+ $("#cform").find('input[name="email"]').val() + '&subject='+ $("#cform").find('input[name="subject"]').val() + '&message=' + $("#cform").find('textarea[name="message"]').val(),
-				beforeSend: function() {
-				
-				},
-				complete: function() {
-				
-				},
-				success: function(data) {
-					$('#cform').fadeOut();
-					$('.alert-success').delay(1000).fadeIn();
-				}
-			});
-		}
-	});
-
-	/* Validate contact form */
-	$("#blog-form").validate({
-		rules: {
-			name: {
-				required: true
-			},
-			message: {
-				required: true
-			},
-			email: {
-				required: true,
-				email: true
-			}
-		},
-		success: "valid",
-		submitHandler: function() {
-			$('#blog-form').fadeOut();
-			$('.alert-success').delay(1000).fadeIn();
-		}
 	});
 	
 	/* Initialize masonry items */
@@ -227,87 +152,4 @@ $(function () {
 		}
 	});
 
-	if($('#home-section').length) {
-		google.maps.event.addDomListener(window, 'load', initMap);
-	}
-
 });
-
-/* Google Map Options */
-function initMap() {
-	var myLatlng = new google.maps.LatLng(40.773328,-73.960088); // <- Your latitude and longitude
-	var styles = [
-	{
-		"featureType": "water",
-		"stylers": [{
-			"color": "#d8dee9"
-		},
-		{
-			"visibility": "on"
-		}]
-	},
-	{
-		"featureType": "landscape",
-		"stylers": [{
-			"color": "#eeeeee"
-		}]
-	},
-	{
-		"featureType": "road",
-		"stylers": [{
-			"saturation": -100
-		},
-		{
-			"lightness": 45
-		}]
-	},
-	{
-		"featureType": "road.highway",
-		"stylers": [{
-			"visibility": "simplified"
-		}]
-	},
-	{
-		"featureType": "road.arterial",
-		"elementType": "labels.icon",
-		"stylers": [{
-			"visibility": "on"
-		}]
-	},
-	{
-		"featureType": "administrative",
-		"elementType": "labels.text.fill",
-		"stylers": [{
-			"color": "#363636"
-		}]
-	},
-	{
-		"featureType": "transit",
-		"stylers": [{
-			"visibility": "off"
-		}]
-	},
-	{
-		"featureType": "poi",
-		"stylers": [{
-			"visibility": "off"
-		}]
-	}]
-
-	var mapOptions = {
-		zoom: 14,
-		center: myLatlng,
-		mapTypeControl: false,
-		disableDefaultUI: true,
-		zoomControl: true,
-		scrollwheel: false,
-		styles: styles
-	}
-	
-	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-	var marker = new google.maps.Marker({
-		position: myLatlng,
-		map: map,
-		title: 'We are here!'
-	});
-}

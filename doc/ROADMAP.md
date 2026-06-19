@@ -21,6 +21,11 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Configurada publicación mediante GitHub Actions para GitHub Pages.
 - Actualizada la referencia del favicon a `favicon_dr.ico`.
 - Simplificada la sección de contacto eliminando el formulario visible.
+- Eliminada la lógica JS de validación/envío de formularios heredados y la carga de `jquery.validate.js`.
+- Eliminados `js/jquery.validate.js` y `mailer/` al no usarse en el sitio estático.
+- Eliminada la carga de Google Maps JS API y el código `initMap`, manteniendo el mapa como iframe.
+- Eliminado YTPlayer al no existir vídeo de fondo ni elemento `#video-bg`.
+- Eliminado Owl Carousel al no existir carrusel activo en el HTML.
 - Añadido `title` y `loading="lazy"` al iframe de Google Maps.
 
 ## Estrategia de idiomas
@@ -84,7 +89,6 @@ Componentes principales:
 - `images/`: foto, logos, fondo, banderas y favicon.
 - `fontawesome/`: distribución completa de FontAwesome.
 - `fonts/`: fuentes de Ionicons.
-- `mailer/`: código PHP de PHPMailer heredado.
 - `.htaccess`: reglas para URLs sin extensión y actualización de peticiones inseguras.
 - `CNAME`: dominio personalizado.
 
@@ -112,13 +116,9 @@ Problemas estructurales actuales:
 - Se carga FontAwesome completo mediante `fontawesome/js/all.min.js`, con un peso muy alto para pocos iconos.
 - Google Fonts carga demasiados pesos y variantes de Roboto.
 - Se cargan librerías que parecen no estar en uso o solo parcialmente:
-  - YTPlayer.
-  - Owl Carousel.
-  - Google Maps JS API.
   - Validación de formularios.
   - Código de blog.
-- Hay un iframe de Google Maps y además código JS para Google Maps API.
-- El script de Google Maps usa `http://`.
+- El mapa se mantiene como iframe; se ha eliminado la carga adicional de Google Maps JS API.
 - Falta `loading="lazy"` en imágenes no críticas y debe revisarse si quedan iframes sin carga diferida.
 - Faltan dimensiones explícitas en varias imágenes.
 - El preloader puede empeorar la percepción de carga.
@@ -130,7 +130,7 @@ Problemas estructurales actuales:
 - La jerarquía de encabezados no representa correctamente la estructura.
 - El botón de menú es un enlace sin nombre accesible suficiente.
 - Los enlaces solo con icono dependen de `title` o no tienen nombre accesible robusto.
-- El formulario visible se ha eliminado, pero queda pendiente limpiar código JS y assets relacionados.
+- El formulario visible, su lógica JS de validación/envío y los assets PHP heredados se han eliminado.
 - El iframe de Google Maps ya tiene `title` en las páginas principales, pero conviene mantener esta regla en futuros iframes.
 - Muchos enlaces externos usan `target="_blank"` sin `rel="noopener noreferrer"`.
 - Algunos enlaces usan `target="blank"` en lugar de `target="_blank"`.
@@ -144,7 +144,7 @@ Problemas estructurales actuales:
 
 - El selector de idioma es poco visible.
 - La navegación lateral puede resultar poco evidente en escritorio.
-- La sección de contacto ya no muestra formulario visible; queda pendiente limpiar el código heredado relacionado.
+- La sección de contacto ya no muestra formulario visible y se ha eliminado su lógica JS heredada.
 - El mapa ocupa espacio y añade carga externa con poco valor práctico.
 - La sección de clientes usa popups con poca información adicional.
 - Los porcentajes de habilidades pueden parecer arbitrarios.
@@ -155,22 +155,19 @@ Problemas estructurales actuales:
 ### Código muerto, duplicado o innecesario
 
 - Duplicación casi total entre `index.html` y `spanish.html`.
-- Código de YTPlayer sin elemento `#video-bg` aparente.
-- Código de Google Maps para `#map`, aunque se usa un iframe.
+- El código de YTPlayer se ha eliminado al no existir elemento `#video-bg`.
+- El código de Google Maps para `#map` se ha eliminado; se mantiene el iframe.
 - Código de `#blog-form` sin formulario de blog aparente.
-- Inicialización de carrusel si no hay carrusel real.
+- La inicialización y assets de Owl Carousel se han eliminado al no existir carrusel real.
 - `js/ionicons.js` presente pero comentado.
 - `default.php` parece residual del hosting.
-- `mailer/` contiene configuración de plantilla y destinatario no relacionado.
 - FontAwesome incluye CSS, JS, LESS, SCSS, metadata, sprites, SVGs y webfonts completos.
 - `less/` puede estar obsoleto si no se recompila CSS.
 - Scripts condicionales para IE9 por HTTP son obsoletos.
 
 ### Riesgos técnicos
 
-- Formulario frágil en entorno estático.
-- PHP mailer sin sanitización robusta, sin CSRF, sin rate limiting y con configuración de plantilla.
-- Aunque el formulario visible se ha eliminado, `main.js` aún contiene lógica heredada de envío y validación de formulario.
+- El formulario visible, su lógica JS y el PHP mailer heredado se han eliminado; si se reintroduce contacto avanzado, debe definirse una solución compatible con sitio estático.
 - jQuery 2.1.4 es antiguo.
 - Dependencias vendorizadas sin versiones ni proceso de actualización claro.
 - Posible falta de efecto de `.htaccess` si el despliegue es GitHub Pages.
@@ -207,7 +204,7 @@ Tareas recomendadas:
 - Convertir imágenes grandes a WebP o AVIF.
 - Añadir dimensiones a imágenes.
 - Añadir `loading="lazy"` a imágenes e iframe no críticos.
-- Eliminar Google Maps JS API si se mantiene solo el iframe.
+- Hecho: eliminar Google Maps JS API si se mantiene solo el iframe.
 - Cargar el mapa solo bajo demanda o sustituirlo por texto/enlace.
 - Reducir Google Fonts a pesos estrictamente necesarios.
 - Añadir `display=swap` y `preconnect` si se mantienen Google Fonts.
@@ -239,12 +236,12 @@ Objetivo: eliminar código y dependencias heredadas que no aportan valor.
 
 Tareas recomendadas:
 
-- Eliminar YTPlayer si no hay vídeo.
-- Eliminar Owl Carousel si no hay carrusel.
-- Eliminar Google Maps JS API y código `initMap` si no se usa.
+- Hecho: eliminar YTPlayer si no hay vídeo.
+- Hecho: eliminar Owl Carousel si no hay carrusel.
+- Hecho: eliminar Google Maps JS API y código `initMap` si no se usa.
 - Eliminar código de blog si no hay blog.
 - Revisar necesidad de Masonry, ImagesLoaded y Magnific Popup.
-- Eliminar o reemplazar `mailer/` si no hay backend PHP real.
+- Hecho: eliminar `mailer/` al no haber backend PHP real.
 - Eliminar `default.php` si no tiene función en producción.
 - Eliminar assets de FontAwesome no usados.
 - Revisar si `less/` debe mantenerse o eliminarse.
@@ -315,9 +312,9 @@ Tareas recomendadas:
 | 1 | Hecho | Poner español en `/` e inglés en `/en/` | Alto | Medio |
 | 2 | Hecho | Añadir `meta description`, canonical, `hreflang` y `lang` correcto | Alto | Bajo |
 | 3 | Pendiente | Optimizar `images/bg/galaxy.png` | Alto | Bajo |
-| 4 | Pendiente | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
+| 4 | Hecho | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
 | 5 | Pendiente | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
-| 6 | Hecho parcial | Simplificar el formulario de contacto visible | Alto | Medio |
+| 6 | Hecho parcial | Simplificar el formulario de contacto y limpiar su JS heredado | Alto | Medio |
 | 7 | Pendiente | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
 | 8 | Pendiente | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
 | 9 | Pendiente | Añadir labels, botones reales y nombres accesibles | Alto | Medio |

@@ -132,9 +132,6 @@ El repositorio contiene librerías y assets heredados de plantilla.
 - Posibles áreas de limpieza:
   - FontAwesome completo
   - Google Maps JS
-  - YTPlayer
-  - Owl Carousel
-  - PHP mailer
   - LESS sin pipeline
   - scripts o estilos de blog/portfolio no usados
 
