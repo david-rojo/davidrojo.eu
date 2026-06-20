@@ -420,6 +420,7 @@ header .menu-btn span:after {
 }
 
 .st-box .st-title {
+	margin: 0;
 	font-size: 42px;
 	font-weight: 100;
 	line-height: 44px;

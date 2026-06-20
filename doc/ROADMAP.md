@@ -28,6 +28,7 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Eliminado Owl Carousel al no existir carrusel activo en el HTML.
 - Eliminada la página heredada `spanish.html`; el español queda servido desde `/`.
 - Corregidos enlaces externos con `target="_blank"` y `rel="noopener noreferrer"`.
+- Añadido un `<h1>` principal en las páginas de español e inglés.
 - Añadido `title` y `loading="lazy"` al iframe de Google Maps.
 
 ## Estrategia de idiomas
@@ -127,7 +128,7 @@ Problemas estructurales actuales:
 
 ### Accesibilidad
 
-- Falta un `<h1>` principal claro.
+- Hecho: añadir un `<h1>` principal claro en las páginas principales.
 - La jerarquía de encabezados no representa correctamente la estructura.
 - El botón de menú es un enlace sin nombre accesible suficiente.
 - Los enlaces solo con icono dependen de `title` o no tienen nombre accesible robusto.
@@ -217,7 +218,7 @@ Objetivo: mejorar navegación, semántica y compatibilidad con tecnologías de a
 
 Tareas recomendadas:
 
-- Añadir un `<h1>` principal.
+- Hecho: añadir un `<h1>` principal.
 - Convertir títulos de sección a `<h2>`.
 - Usar `<main>`, `<nav>`, `<section>` y `<footer>` correctamente.
 - Convertir el menú hamburguesa en botón accesible.
