@@ -29,6 +29,7 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Eliminada la página heredada `spanish.html`; el español queda servido desde `/`.
 - Corregidos enlaces externos con `target="_blank"` y `rel="noopener noreferrer"`.
 - Añadido un `<h1>` principal en las páginas de español e inglés.
+- Añadidos nombres accesibles a los enlaces principales con iconos.
 - Añadido `title` y `loading="lazy"` al iframe de Google Maps.
 
 ## Estrategia de idiomas
@@ -131,7 +132,7 @@ Problemas estructurales actuales:
 - Hecho: añadir un `<h1>` principal claro en las páginas principales.
 - La jerarquía de encabezados no representa correctamente la estructura.
 - El botón de menú es un enlace sin nombre accesible suficiente.
-- Los enlaces solo con icono dependen de `title` o no tienen nombre accesible robusto.
+- Hecho parcial: los enlaces principales con iconos ya tienen nombre accesible.
 - El formulario visible, su lógica JS de validación/envío y los assets PHP heredados se han eliminado.
 - El iframe de Google Maps ya tiene `title` en las páginas principales, pero conviene mantener esta regla en futuros iframes.
 - Hecho: corregir enlaces externos con `target="_blank"` y `rel="noopener noreferrer"`.
@@ -222,7 +223,7 @@ Tareas recomendadas:
 - Convertir títulos de sección a `<h2>`.
 - Usar `<main>`, `<nav>`, `<section>` y `<footer>` correctamente.
 - Convertir el menú hamburguesa en botón accesible.
-- Añadir nombres accesibles a enlaces con iconos.
+- Hecho parcial: añadir nombres accesibles a enlaces con iconos principales.
 - Hecho: corregir `target="_blank"` con `rel="noopener noreferrer"`.
 - Si se reintroduce un formulario, añadir labels a campos de formulario.
 - Si se reintroduce un formulario, sustituir el enlace de envío por `<button type="submit">`.
