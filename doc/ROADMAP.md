@@ -109,6 +109,7 @@ Problemas estructurales actuales:
 
 - La versión heredada `spanish.html` se ha eliminado; la URL española principal es `/`.
 - Las dos páginas principales comparten el mismo título, aunque tienen `meta description` localizada.
+- La página 404 actual es la genérica de GitHub Pages y no mantiene navegación, idioma ni marca del sitio.
 - La jerarquía semántica es débil: no hay un `<h1>` claro.
 - Muchos títulos visuales son `div` en lugar de encabezados reales.
 - Muchas imágenes informativas tienen `alt=""`.
@@ -129,13 +130,13 @@ Problemas estructurales actuales:
 
 ### Accesibilidad
 
-- Hecho: añadir un `<h1>` principal claro en las páginas principales.
+- ✅ Hecho: añadir un `<h1>` principal claro en las páginas principales.
 - La jerarquía de encabezados no representa correctamente la estructura.
 - El botón de menú es un enlace sin nombre accesible suficiente.
-- Hecho parcial: los enlaces principales con iconos ya tienen nombre accesible.
+- 🟡 Hecho parcial: los enlaces principales con iconos ya tienen nombre accesible.
 - El formulario visible, su lógica JS de validación/envío y los assets PHP heredados se han eliminado.
 - El iframe de Google Maps ya tiene `title` en las páginas principales, pero conviene mantener esta regla en futuros iframes.
-- Hecho: corregir enlaces externos con `target="_blank"` y `rel="noopener noreferrer"`.
+- ✅ Hecho: corregir enlaces externos con `target="_blank"` y `rel="noopener noreferrer"`.
 - Las barras de progreso transmiten información visual sin semántica accesible.
 - Los filtros de clientes no tienen `fieldset` ni `legend`.
 - No hay enlace de salto al contenido principal.
@@ -185,16 +186,17 @@ Objetivo: que la web tenga una estructura correcta para buscadores y usuarios.
 
 Tareas recomendadas:
 
-- Hecho: hacer que el español sea la página principal en `/`.
-- Hecho: mover o generar la versión inglesa en `/en/`.
-- Hecho: corregir `lang` en cada idioma.
-- Hecho: añadir `title` y `meta description` específicos por idioma.
-- Hecho: añadir canonical y `hreflang`.
-- Hecho: añadir `robots.txt`.
-- Hecho: añadir `sitemap.xml`.
-- Hecho: añadir Open Graph y Twitter Cards.
-- Hecho: añadir JSON-LD con `Person` o `ProfilePage`.
-- Hecho: normalizar enlaces del selector de idioma.
+- ✅ Hecho: hacer que el español sea la página principal en `/`.
+- ✅ Hecho: mover o generar la versión inglesa en `/en/`.
+- ✅ Hecho: corregir `lang` en cada idioma.
+- ✅ Hecho: añadir `title` y `meta description` específicos por idioma.
+- ✅ Hecho: añadir canonical y `hreflang`.
+- ✅ Hecho: añadir `robots.txt`.
+- ✅ Hecho: añadir `sitemap.xml`.
+- ⏳ Añadir una página 404 personalizada compatible con GitHub Pages.
+- ✅ Hecho: añadir Open Graph y Twitter Cards.
+- ✅ Hecho: añadir JSON-LD con `Person` o `ProfilePage`.
+- ✅ Hecho: normalizar enlaces del selector de idioma.
 
 ### Fase 2: Rendimiento
 
@@ -206,7 +208,7 @@ Tareas recomendadas:
 - Convertir imágenes grandes a WebP o AVIF.
 - Añadir dimensiones a imágenes.
 - Añadir `loading="lazy"` a imágenes e iframe no críticos.
-- Hecho: eliminar Google Maps JS API si se mantiene solo el iframe.
+- ✅ Hecho: eliminar Google Maps JS API si se mantiene solo el iframe.
 - Cargar el mapa solo bajo demanda o sustituirlo por texto/enlace.
 - Reducir Google Fonts a pesos estrictamente necesarios.
 - Añadir `display=swap` y `preconnect` si se mantienen Google Fonts.
@@ -219,15 +221,15 @@ Objetivo: mejorar navegación, semántica y compatibilidad con tecnologías de a
 
 Tareas recomendadas:
 
-- Hecho: añadir un `<h1>` principal.
+- ✅ Hecho: añadir un `<h1>` principal.
 - Convertir títulos de sección a `<h2>`.
 - Usar `<main>`, `<nav>`, `<section>` y `<footer>` correctamente.
 - Convertir el menú hamburguesa en botón accesible.
-- Hecho parcial: añadir nombres accesibles a enlaces con iconos principales.
-- Hecho: corregir `target="_blank"` con `rel="noopener noreferrer"`.
+- 🟡 Hecho parcial: añadir nombres accesibles a enlaces con iconos principales.
+- ✅ Hecho: corregir `target="_blank"` con `rel="noopener noreferrer"`.
 - Si se reintroduce un formulario, añadir labels a campos de formulario.
 - Si se reintroduce un formulario, sustituir el enlace de envío por `<button type="submit">`.
-- Hecho: añadir `title` al iframe de Google Maps en las páginas principales.
+- ✅ Hecho: añadir `title` al iframe de Google Maps en las páginas principales.
 - Revisar foco visible y navegación por teclado.
 - Revisar contraste.
 - Respetar `prefers-reduced-motion`.
@@ -238,12 +240,12 @@ Objetivo: eliminar código y dependencias heredadas que no aportan valor.
 
 Tareas recomendadas:
 
-- Hecho: eliminar YTPlayer si no hay vídeo.
-- Hecho: eliminar Owl Carousel si no hay carrusel.
-- Hecho: eliminar Google Maps JS API y código `initMap` si no se usa.
+- ✅ Hecho: eliminar YTPlayer si no hay vídeo.
+- ✅ Hecho: eliminar Owl Carousel si no hay carrusel.
+- ✅ Hecho: eliminar Google Maps JS API y código `initMap` si no se usa.
 - Eliminar código de blog si no hay blog.
 - Revisar necesidad de Masonry, ImagesLoaded y Magnific Popup.
-- Hecho: eliminar `mailer/` al no haber backend PHP real.
+- ✅ Hecho: eliminar `mailer/` al no haber backend PHP real.
 - Eliminar `default.php` si no tiene función en producción.
 - Eliminar assets de FontAwesome no usados.
 - Revisar si `less/` debe mantenerse o eliminarse.
@@ -311,26 +313,26 @@ Tareas recomendadas:
 
 | # | Estado | Mejora | Impacto | Esfuerzo |
 |---:|---|---|---|---|
-| 1 | Hecho | Poner español en `/` e inglés en `/en/` | Alto | Medio |
-| 2 | Hecho | Añadir `meta description`, canonical, `hreflang` y `lang` correcto | Alto | Bajo |
-| 3 | Pendiente | Optimizar `images/bg/galaxy.png` | Alto | Bajo |
-| 4 | Hecho | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
-| 5 | Pendiente | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
-| 6 | Hecho parcial | Simplificar el formulario de contacto y limpiar su JS heredado | Alto | Medio |
-| 7 | Pendiente | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
-| 8 | Hecho | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
-| 9 | Pendiente | Añadir labels, botones reales y nombres accesibles | Alto | Medio |
-| 10 | Pendiente | Eliminar librerías no usadas | Alto | Bajo |
-| 11 | Pendiente | Reducir Google Fonts y añadir `display=swap` | Medio-Alto | Bajo |
-| 12 | Hecho parcial | Añadir lazy loading a imágenes e iframe | Medio-Alto | Bajo |
-| 13 | Pendiente | Añadir dimensiones y `alt` adecuados en imágenes | Medio-Alto | Bajo |
-| 14 | Hecho | Añadir JSON-LD `Person` o `ProfilePage` | Medio-Alto | Bajo |
-| 15 | Hecho | Crear `robots.txt` y `sitemap.xml` | Medio | Bajo |
-| 16 | Pendiente | Eliminar `default.php`, LESS no usado y assets residuales | Medio | Bajo-Medio |
-| 17 | Pendiente | Normalizar rutas y enlaces internos | Medio | Medio |
-| 18 | Pendiente | Reemplazar popups complejos por tarjetas más simples | Medio | Medio |
-| 19 | Pendiente | Revisar contraste, foco y reducción de movimiento | Medio | Medio |
-| 20 | Pendiente | Introducir una plantilla o generador estático para evitar duplicación | Medio | Alto |
+| 1 | ✅ Hecho | Poner español en `/` e inglés en `/en/` | Alto | Medio |
+| 2 | ✅ Hecho | Añadir `meta description`, canonical, `hreflang` y `lang` correcto | Alto | Bajo |
+| 3 | ⏳ Pendiente | Optimizar `images/bg/galaxy.png` | Alto | Bajo |
+| 4 | ✅ Hecho | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
+| 5 | ⏳ Pendiente | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
+| 6 | 🟡 Hecho parcial | Simplificar el formulario de contacto y limpiar su JS heredado | Alto | Medio |
+| 7 | ⏳ Pendiente | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
+| 8 | ✅ Hecho | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
+| 9 | ⏳ Pendiente | Añadir labels, botones reales y nombres accesibles | Alto | Medio |
+| 10 | ⏳ Pendiente | Eliminar librerías no usadas | Alto | Bajo |
+| 11 | ⏳ Pendiente | Reducir Google Fonts y añadir `display=swap` | Medio-Alto | Bajo |
+| 12 | 🟡 Hecho parcial | Añadir lazy loading a imágenes e iframe | Medio-Alto | Bajo |
+| 13 | ⏳ Pendiente | Añadir dimensiones y `alt` adecuados en imágenes | Medio-Alto | Bajo |
+| 14 | ✅ Hecho | Añadir JSON-LD `Person` o `ProfilePage` | Medio-Alto | Bajo |
+| 15 | ✅ Hecho | Crear `robots.txt` y `sitemap.xml` | Medio | Bajo |
+| 16 | ⏳ Pendiente | Añadir página 404 personalizada compatible con GitHub Pages | Medio | Bajo |
+| 17 | ⏳ Pendiente | Eliminar `default.php`, LESS no usado y assets residuales | Medio | Bajo-Medio |
+| 18 | ⏳ Pendiente | Normalizar rutas y enlaces internos | Medio | Medio |
+| 19 | ⏳ Pendiente | Reemplazar popups complejos por tarjetas más simples | Medio | Medio |
+| 20 | ⏳ Pendiente | Introducir una plantilla o generador estático para evitar duplicación | Medio | Alto |
 
 ## Criterio de ejecución recomendado
 
