@@ -27,6 +27,7 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Eliminado YTPlayer al no existir vídeo de fondo ni elemento `#video-bg`.
 - Eliminado Owl Carousel al no existir carrusel activo en el HTML.
 - Eliminada la página heredada `spanish.html`; el español queda servido desde `/`.
+- Corregidos enlaces externos con `target="_blank"` y `rel="noopener noreferrer"`.
 - Añadido `title` y `loading="lazy"` al iframe de Google Maps.
 
 ## Estrategia de idiomas
@@ -132,8 +133,7 @@ Problemas estructurales actuales:
 - Los enlaces solo con icono dependen de `title` o no tienen nombre accesible robusto.
 - El formulario visible, su lógica JS de validación/envío y los assets PHP heredados se han eliminado.
 - El iframe de Google Maps ya tiene `title` en las páginas principales, pero conviene mantener esta regla en futuros iframes.
-- Muchos enlaces externos usan `target="_blank"` sin `rel="noopener noreferrer"`.
-- Algunos enlaces usan `target="blank"` en lugar de `target="_blank"`.
+- Hecho: corregir enlaces externos con `target="_blank"` y `rel="noopener noreferrer"`.
 - Las barras de progreso transmiten información visual sin semántica accesible.
 - Los filtros de clientes no tienen `fieldset` ni `legend`.
 - No hay enlace de salto al contenido principal.
@@ -222,7 +222,7 @@ Tareas recomendadas:
 - Usar `<main>`, `<nav>`, `<section>` y `<footer>` correctamente.
 - Convertir el menú hamburguesa en botón accesible.
 - Añadir nombres accesibles a enlaces con iconos.
-- Corregir `target="_blank"` con `rel="noopener noreferrer"`.
+- Hecho: corregir `target="_blank"` con `rel="noopener noreferrer"`.
 - Si se reintroduce un formulario, añadir labels a campos de formulario.
 - Si se reintroduce un formulario, sustituir el enlace de envío por `<button type="submit">`.
 - Hecho: añadir `title` al iframe de Google Maps en las páginas principales.
@@ -316,7 +316,7 @@ Tareas recomendadas:
 | 5 | Pendiente | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
 | 6 | Hecho parcial | Simplificar el formulario de contacto y limpiar su JS heredado | Alto | Medio |
 | 7 | Pendiente | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
-| 8 | Pendiente | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
+| 8 | Hecho | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
 | 9 | Pendiente | Añadir labels, botones reales y nombres accesibles | Alto | Medio |
 | 10 | Pendiente | Eliminar librerías no usadas | Alto | Bajo |
 | 11 | Pendiente | Reducir Google Fonts y añadir `display=swap` | Medio-Alto | Bajo |
