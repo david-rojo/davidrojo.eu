@@ -34,6 +34,12 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Generada versión WebP optimizada de `images/bg/galaxy.png` y usada como fondo principal.
 - Reducida la carga de Google Fonts a los pesos de Roboto usados y añadido `display=swap` con `preconnect`.
 - Añadida página `404.html` personalizada compatible con GitHub Pages.
+- Añadidas dimensiones, textos alternativos y carga diferida a imágenes principales y logos de clientes.
+- Añadida estructura semántica básica con `<main>`, `<nav>` y títulos de sección como `<h2>`.
+- Convertido el menú hamburguesa en un botón accesible con nombre y estado expandido.
+- Eliminado `default.php`, página residual del hosting anterior sin uso en GitHub Pages.
+- Eliminada la inicialización JS de `.post-lightbox` al no existir galería/blog activo en las páginas principales.
+- Traducidos textos visibles residuales en inglés de la versión española (`All` y `View Web`).
 
 ## Estrategia de idiomas
 
@@ -113,9 +119,9 @@ Problemas estructurales actuales:
 - La versión heredada `spanish.html` se ha eliminado; la URL española principal es `/`.
 - Las dos páginas principales comparten el mismo título, aunque tienen `meta description` localizada.
 - ✅ Hecho: añadida página `404.html` personalizada compatible con GitHub Pages.
-- La jerarquía semántica es débil: no hay un `<h1>` claro.
-- Muchos títulos visuales son `div` en lugar de encabezados reales.
-- Muchas imágenes informativas tienen `alt=""`.
+- ✅ Hecho: hay un `<h1>` claro en las páginas principales.
+- ✅ Hecho parcial: los títulos principales de sección existentes son `<h2>`.
+- ✅ Hecho parcial: las imágenes principales y logos de clientes ya tienen `alt` y dimensiones adecuados.
 
 ### Lighthouse y rendimiento
 
@@ -126,16 +132,16 @@ Problemas estructurales actuales:
   - Validación de formularios.
   - Código de blog.
 - El mapa se mantiene como iframe; se ha eliminado la carga adicional de Google Maps JS API.
-- Falta `loading="lazy"` en imágenes no críticas y debe revisarse si quedan iframes sin carga diferida.
-- Faltan dimensiones explícitas en varias imágenes.
+- ✅ Hecho parcial: añadida carga diferida a logos de clientes e imágenes de popups; debe mantenerse en futuras imágenes no críticas.
+- ✅ Hecho parcial: añadidas dimensiones explícitas a la foto principal y logos de clientes.
 - El preloader puede empeorar la percepción de carga.
 - Las animaciones y revelados pueden retrasar la visualización útil.
 
 ### Accesibilidad
 
 - ✅ Hecho: añadir un `<h1>` principal claro en las páginas principales.
-- La jerarquía de encabezados no representa correctamente la estructura.
-- El botón de menú es un enlace sin nombre accesible suficiente.
+- ✅ Hecho parcial: añadidos `<main>`, `<nav>` y `<h2>` para títulos principales de sección.
+- ✅ Hecho: el botón de menú es un `<button>` con nombre accesible y `aria-expanded`.
 - 🟡 Hecho parcial: los enlaces principales con iconos ya tienen nombre accesible.
 - El formulario visible, su lógica JS de validación/envío y los assets PHP heredados se han eliminado.
 - El iframe de Google Maps ya tiene `title` en las páginas principales, pero conviene mantener esta regla en futuros iframes.
@@ -154,7 +160,7 @@ Problemas estructurales actuales:
 - El mapa ocupa espacio y añade carga externa con poco valor práctico.
 - La sección de clientes usa popups con poca información adicional.
 - Los porcentajes de habilidades pueden parecer arbitrarios.
-- En la versión española quedan textos en inglés como `All` y `View Web`.
+- ✅ Hecho: traducidos textos visibles residuales en inglés de la versión española como `All` y `View Web`.
 - Hay contenido repetido entre experiencia y clientes.
 - El diseño conserva rasgos de plantilla antigua.
 
@@ -164,9 +170,10 @@ Problemas estructurales actuales:
 - El código de YTPlayer se ha eliminado al no existir elemento `#video-bg`.
 - El código de Google Maps para `#map` se ha eliminado; se mantiene el iframe.
 - Código de `#blog-form` sin formulario de blog aparente.
+- ✅ Hecho parcial: eliminada la inicialización JS de `.post-lightbox` al no existir galería activa en el HTML.
 - La inicialización y assets de Owl Carousel se han eliminado al no existir carrusel real.
 - `js/ionicons.js` presente pero comentado.
-- `default.php` parece residual del hosting.
+- ✅ Hecho: `default.php`, residual del hosting anterior, se ha eliminado.
 - FontAwesome incluye CSS, JS, LESS, SCSS, metadata, sprites, SVGs y webfonts completos.
 - `less/` puede estar obsoleto si no se recompila CSS.
 - Scripts condicionales para IE9 por HTTP son obsoletos.
@@ -209,8 +216,8 @@ Tareas recomendadas:
 
 - ✅ Hecho: optimizar `images/bg/galaxy.png` generando `images/bg/galaxy.webp`.
 - Convertir imágenes grandes a WebP o AVIF.
-- Añadir dimensiones a imágenes.
-- Añadir `loading="lazy"` a imágenes e iframe no críticos.
+- ✅ Hecho parcial: añadir dimensiones a imágenes.
+- ✅ Hecho parcial: añadir `loading="lazy"` a imágenes e iframe no críticos.
 - ✅ Hecho: eliminar Google Maps JS API si se mantiene solo el iframe.
 - Cargar el mapa solo bajo demanda o sustituirlo por texto/enlace.
 - ✅ Hecho: reducir Google Fonts a pesos estrictamente necesarios.
@@ -225,9 +232,9 @@ Objetivo: mejorar navegación, semántica y compatibilidad con tecnologías de a
 Tareas recomendadas:
 
 - ✅ Hecho: añadir un `<h1>` principal.
-- Convertir títulos de sección a `<h2>`.
-- Usar `<main>`, `<nav>`, `<section>` y `<footer>` correctamente.
-- Convertir el menú hamburguesa en botón accesible.
+- ✅ Hecho: convertir títulos de sección a `<h2>`.
+- 🟡 Hecho parcial: usar `<main>`, `<nav>`, `<section>` y `<footer>` correctamente.
+- ✅ Hecho: convertir el menú hamburguesa en botón accesible.
 - 🟡 Hecho parcial: añadir nombres accesibles a enlaces con iconos principales.
 - ✅ Hecho: corregir `target="_blank"` con `rel="noopener noreferrer"`.
 - Si se reintroduce un formulario, añadir labels a campos de formulario.
@@ -246,10 +253,10 @@ Tareas recomendadas:
 - ✅ Hecho: eliminar YTPlayer si no hay vídeo.
 - ✅ Hecho: eliminar Owl Carousel si no hay carrusel.
 - ✅ Hecho: eliminar Google Maps JS API y código `initMap` si no se usa.
-- Eliminar código de blog si no hay blog.
+- 🟡 Hecho parcial: eliminar código de blog si no hay blog.
 - Revisar necesidad de Masonry, ImagesLoaded y Magnific Popup.
 - ✅ Hecho: eliminar `mailer/` al no haber backend PHP real.
-- Eliminar `default.php` si no tiene función en producción.
+- ✅ Hecho: eliminar `default.php` si no tiene función en producción.
 - Eliminar assets de FontAwesome no usados.
 - Revisar si `less/` debe mantenerse o eliminarse.
 
@@ -322,17 +329,17 @@ Tareas recomendadas:
 | 4 | ✅ Hecho | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
 | 5 | ⏳ Pendiente | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
 | 6 | 🟡 Hecho parcial | Simplificar el formulario de contacto y limpiar su JS heredado | Alto | Medio |
-| 7 | ⏳ Pendiente | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
+| 7 | 🟡 Hecho parcial | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
 | 8 | ✅ Hecho | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
-| 9 | ⏳ Pendiente | Añadir labels, botones reales y nombres accesibles | Alto | Medio |
+| 9 | 🟡 Hecho parcial | Añadir labels, botones reales y nombres accesibles | Alto | Medio |
 | 10 | ⏳ Pendiente | Eliminar librerías no usadas | Alto | Bajo |
 | 11 | ✅ Hecho | Reducir Google Fonts y añadir `display=swap` | Medio-Alto | Bajo |
 | 12 | 🟡 Hecho parcial | Añadir lazy loading a imágenes e iframe | Medio-Alto | Bajo |
-| 13 | ⏳ Pendiente | Añadir dimensiones y `alt` adecuados en imágenes | Medio-Alto | Bajo |
+| 13 | 🟡 Hecho parcial | Añadir dimensiones y `alt` adecuados en imágenes | Medio-Alto | Bajo |
 | 14 | ✅ Hecho | Añadir JSON-LD `Person` o `ProfilePage` | Medio-Alto | Bajo |
 | 15 | ✅ Hecho | Crear `robots.txt` y `sitemap.xml` | Medio | Bajo |
 | 16 | ✅ Hecho | Añadir página 404 personalizada compatible con GitHub Pages | Medio | Bajo |
-| 17 | ⏳ Pendiente | Eliminar `default.php`, LESS no usado y assets residuales | Medio | Bajo-Medio |
+| 17 | 🟡 Hecho parcial | Eliminar `default.php`, LESS no usado y assets residuales | Medio | Bajo-Medio |
 | 18 | ⏳ Pendiente | Normalizar rutas y enlaces internos | Medio | Medio |
 | 19 | ⏳ Pendiente | Reemplazar popups complejos por tarjetas más simples | Medio | Medio |
 | 20 | ⏳ Pendiente | Introducir una plantilla o generador estático para evitar duplicación | Medio | Alto |

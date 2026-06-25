@@ -116,7 +116,7 @@
 
 		<!-- Header -->
 		<header>
-			<div class="top-menu">
+			<nav class="top-menu" aria-label="Navegación principal">
 				<ul>
 					<li class="active">
 						<a class="btn_animated" href="#home-section"><span class="circle">Home</span></a>
@@ -146,17 +146,17 @@
 						<a class="btn_animated" href="#contact-section"><span class="circle">Contacto</span></a>
 					</li>
 				</ul>
-				<a href="#" class="menu-btn"><span></span></a>
-			</div>
+				<button type="button" class="menu-btn" aria-label="Abrir menú" aria-expanded="false" data-open-label="Abrir menú" data-close-label="Cerrar menú"><span></span></button>
+			</nav>
 		</header>
 		
 		<!-- Container -->
-		<div class="container">
+		<main class="container">
 
 			<!-- Started -->
 			<div class="section started">
 				<div class="st-box">
-					<div class="st-image"><img src="images/david-rojo.jpg" alt="" /></div>
+					<div class="st-image"><img src="images/david-rojo.jpg" alt="David Rojo" width="400" height="400" /></div>
 					<h1 class="st-title">David Rojo</h1>
 					<div class="st-subtitle">Senior Backend Developer</div>
 					<div class="st-soc">
@@ -228,7 +228,7 @@
 
 				<!-- Section Skills -->
 				<div class="section skills" id="skills-section">
-					<div class="title">Habilidades</div>
+					<h2 class="title">Habilidades</h2>
 					<div class="row">
 						<div class="col col-m-12 col-t-6 col-d-6">
 							<div class="content-box animated">
@@ -355,10 +355,10 @@
 
 				<!-- Experience -->
 				<div class="section experience" id="experience-section">
-					<div class="title">
+					<h2 class="title">
 						Experiencia
 						<span class="circle"><i class="icon ion ion-ios-briefcase"></i></span>
-					</div>
+					</h2>
 					<div class="cd-timeline">
 						<div class="cd-timeline-block animated">
 							<div class="cd-timeline-point">
@@ -651,7 +651,7 @@
 
 				<!-- Languages -->
 				<div class="section languages" id="languages-section">
-					<div class="title">Idiomas</div>
+					<h2 class="title">Idiomas</h2>
 					<div class="row">
 						<div class="col col-m-12 col-t-6 col-d-6">
 							<div class="content-box animated">
@@ -680,10 +680,10 @@
 
 				<!-- Section Education -->
 				<div class="section education" id="education-section">
-					<div class="title">
+					<h2 class="title">
 						Educación
 						<span class="circle"><i class="icon ion ion-university"></i></span>
-					</div>
+					</h2>
 					<div class="cd-timeline">
 						<div class="cd-timeline-block animated">
 							<div class="cd-timeline-point">
@@ -735,13 +735,13 @@
 
 				<!-- Clients -->
 				<div class="section works" id="clients-section">
-					<div class="title">Clientes</div>
+					<h2 class="title">Clientes</h2>
 					<div class="filter-menu">
 						<div class="filters">
 							<div class="btn-group">
 								<div class="f_btn btn_animated active">
 									<div class="circle">
-										<label><input type="radio" name="fl_radio" value="box-item" />All</label>
+										<label><input type="radio" name="fl_radio" value="box-item" />Todos</label>
 									</div>
 								</div>
 								<div class="f_btn btn_animated">
@@ -770,7 +770,7 @@
 					<div class="row box-items">
 						<div class="col col-m-12 col-t-6 col-d-4 box-item f-kairos animated">
 							<div class="image">
-								<a href="#popup-1" class="has-popup"><img src="images/clients/inditex-logo.png" alt="" /></a>
+								<a href="#popup-1" class="has-popup"><img src="images/clients/inditex-logo.png" alt="Inditex" width="600" height="446" loading="lazy" /></a>
 							</div>
 							<div class="content-box">
 								<div class="category">Kairós</div>
@@ -779,19 +779,19 @@
 							<div id="popup-1" class="popup-box mfp-fade mfp-hide">
 								<div class="content">
 									<div class="image">
-										<img src="images/clients/inditex-logo.png" alt="">
+										<img src="images/clients/inditex-logo.png" alt="" width="600" height="446" loading="lazy">
 									</div>
 									<div class="desc">
 										<div class="category">Kairós</div>
 										<h4>Inditex (2020-Presente)</h4>
-										<a href="https://www.inditex.com/" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">View Web</span></a>
+										<a href="https://www.inditex.com/" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">Ver web</span></a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col col-m-12 col-t-6 col-d-4 box-item f-atos animated">
 							<div class="image">
-								<a href="#popup-2" class="has-popup"><img src="images/clients/european-commission-logo.png" alt="" /></a>
+								<a href="#popup-2" class="has-popup"><img src="images/clients/european-commission-logo.png" alt="Comisión Europea" width="600" height="446" loading="lazy" /></a>
 							</div>
 							<div class="content-box">
 								<div class="category">Atos</div>
@@ -800,19 +800,19 @@
 							<div id="popup-2" class="popup-box mfp-fade mfp-hide">
 								<div class="content">
 									<div class="image">
-										<img src="images/clients/european-commission-logo.png" alt="">
+										<img src="images/clients/european-commission-logo.png" alt="" width="600" height="446" loading="lazy">
 									</div>
 									<div class="desc">
 										<div class="category">Atos</div>
 										<h4>Comisión Europea (2013-2020)</h4>
-										<a href="https://ec.europa.eu/info/index_en" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">View Web</span></a>
+										<a href="https://ec.europa.eu/info/index_en" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">Ver web</span></a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col col-m-12 col-t-6 col-d-4 box-item f-atos animated">
 							<div class="image">
-								<a href="#popup-3" class="has-popup"><img src="images/clients/echa-logo.png" alt="" /></a>
+								<a href="#popup-3" class="has-popup"><img src="images/clients/echa-logo.png" alt="Agencia Química Europea" width="600" height="446" loading="lazy" /></a>
 							</div>
 							<div class="content-box">
 								<div class="category">Atos</div>
@@ -821,19 +821,19 @@
 							<div id="popup-3" class="popup-box mfp-fade mfp-hide">
 								<div class="content">
 									<div class="image">
-										<img src="images/clients/echa-logo.png" alt="">
+										<img src="images/clients/echa-logo.png" alt="" width="600" height="446" loading="lazy">
 									</div>
 									<div class="desc">
 										<div class="category">Atos</div>
 										<h4>Agencia Química Europea (2013)</h4>
-										<a href="https://echa.europa.eu/home" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">View Web</span></a>
+										<a href="https://echa.europa.eu/home" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">Ver web</span></a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col col-m-12 col-t-6 col-d-4 box-item f-atos animated">
 							<div class="image">
-								<a href="#popup-4" class="has-popup"><img src="images/clients/telefonica-logo.png" alt="" /></a>
+								<a href="#popup-4" class="has-popup"><img src="images/clients/telefonica-logo.png" alt="Telefónica" width="600" height="446" loading="lazy" /></a>
 							</div>
 							<div class="content-box">
 								<div class="category">Atos</div>
@@ -842,19 +842,19 @@
 							<div id="popup-4" class="popup-box mfp-fade mfp-hide">
 								<div class="content">
 									<div class="image">
-										<img src="images/clients/telefonica-logo.png" alt="">
+										<img src="images/clients/telefonica-logo.png" alt="" width="600" height="446" loading="lazy">
 									</div>
 									<div class="desc">
 										<div class="category">Atos</div>
 										<h4>Telefónica (2007-2013)</h4>
-										<a href="https://www.telefonica.com/es/home" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">View Web</span></a>
+										<a href="https://www.telefonica.com/es/home" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">Ver web</span></a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col col-m-12 col-t-6 col-d-4 box-item f-raona animated">
 							<div class="image">
-								<a href="#popup-5" class="has-popup"><img src="images/clients/catalana-occidente-logo.png" alt="" /></a>
+								<a href="#popup-5" class="has-popup"><img src="images/clients/catalana-occidente-logo.png" alt="Catalana Occidente" width="600" height="446" loading="lazy" /></a>
 							</div>
 							<div class="content-box">
 								<div class="category">Raona</div>
@@ -863,19 +863,19 @@
 							<div id="popup-5" class="popup-box mfp-fade mfp-hide">
 								<div class="content">
 									<div class="image">
-										<img src="images/clients/catalana-occidente-logo.png" alt="">
+										<img src="images/clients/catalana-occidente-logo.png" alt="" width="600" height="446" loading="lazy">
 									</div>
 									<div class="desc">
 										<div class="category">Raona</div>
 										<h4>Catalana Occidente (2007)</h4>
-										<a href="https://www.seguroscatalanaoccidente.com/" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">View Web</span></a>
+										<a href="https://www.seguroscatalanaoccidente.com/" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">Ver web</span></a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col col-m-12 col-t-6 col-d-4 box-item f-indra animated">
 							<div class="image">
-								<a href="#popup-6" class="has-popup"><img src="images/clients/icm-madrid-digital-logo.png" alt="" /></a>
+								<a href="#popup-6" class="has-popup"><img src="images/clients/icm-madrid-digital-logo.png" alt="ICM - Madrid Digital" width="600" height="446" loading="lazy" /></a>
 							</div>
 							<div class="content-box">
 								<div class="category">Indra</div>
@@ -884,12 +884,12 @@
 							<div id="popup-6" class="popup-box mfp-fade mfp-hide">
 								<div class="content">
 									<div class="image">
-										<img src="images/clients/icm-madrid-digital-logo.png" alt="">
+										<img src="images/clients/icm-madrid-digital-logo.png" alt="" width="600" height="446" loading="lazy">
 									</div>
 									<div class="desc">
 										<div class="category">Indra</div>
 										<h4>ICM - Madrid Digital (2006-2007)</h4>
-										<a href="https://www.comunidad.madrid/servicios/sede-electronica/madrid-digital" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">View Web</span></a>
+										<a href="https://www.comunidad.madrid/servicios/sede-electronica/madrid-digital" target="_blank" rel="noopener noreferrer" class="btn btn_animated"><span class="circle">Ver web</span></a>
 									</div>
 								</div>
 							</div>
@@ -900,7 +900,7 @@
 
 				<!-- Section interests -->
 				<div class="section interests" id="interests-section">
-					<div class="title">Intereses</div>
+					<h2 class="title">Intereses</h2>
 					<div class="row">
 						<div class="col col-m-12 col-t-6 col-d-3">
 							<div class="content-box animated">
@@ -947,7 +947,7 @@
 
 				<!-- Section Contacts -->
 				<div class="section contacts" id="contact-section">
-					<div class="title">Contacto</div>
+					<h2 class="title">Contacto</h2>
 					<div class="row contact-row">
 						<div class="col col-m-12 col-t-8 col-d-6 contact-info-card">
 							<div class="content-box animated">
@@ -974,7 +974,7 @@
 					Copyright © <span class="current-year"></span> • Desarrollado por <a href="https://davidrojo.eu/"><b>David Rojo</b></a> • Todos los derechos reservados</div>
 			</footer>
 			
-		</div>
+		</main>
 
 	</div>
 	

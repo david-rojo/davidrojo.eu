@@ -59,14 +59,16 @@ $(function () {
 	}
 
 	/* Open Top Menu */
-	$('.page').on('click', '.menu-btn', function(){
-		if($('.top-menu').hasClass('active')){
-			$('.top-menu').removeClass('active');
-		} else {
-			$('.top-menu').addClass('active');
-		}
+	$('.page').on('click', '.menu-btn', function(event){
+		event.preventDefault();
 
-		return false;
+		var $button = $(this);
+		var $menu = $('.top-menu');
+		var isOpen = $menu.hasClass('active');
+
+		$menu.toggleClass('active', !isOpen);
+		$button.attr('aria-expanded', String(!isOpen));
+		$button.attr('aria-label', !isOpen ? $button.data('close-label') : $button.data('open-label'));
 	});
 
 	/* Fixed Top Menu on scroll */
@@ -135,21 +137,4 @@ $(function () {
 		closeBtnInside: true,
 		mainClass: 'mfp-fade'
 	});
-	
-	/* gallery */
-	$('.post-lightbox').magnificPopup({
-		delegate: 'a',
-		type: 'image',
-		tLoading: 'Loading image #%curr%...',
-		mainClass: 'mfp-img-mobile',
-		gallery: {
-			enabled: true,
-			navigateByImgClick: true,
-			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-		},
-		image: {
-			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-		}
-	});
-
 });

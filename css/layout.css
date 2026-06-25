@@ -156,6 +156,10 @@ header .menu-btn {
 	display: block;
 	width: 57px;
 	height: 57px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
 }
 
 header .menu-btn:before {
