@@ -32,6 +32,7 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Añadidos nombres accesibles a los enlaces principales con iconos.
 - Añadido `title` y `loading="lazy"` al iframe de Google Maps.
 - Generada versión WebP optimizada de `images/bg/galaxy.png` y usada como fondo principal.
+- Reducida la carga de Google Fonts a los pesos de Roboto usados y añadido `display=swap` con `preconnect`.
 
 ## Estrategia de idiomas
 
@@ -119,7 +120,7 @@ Problemas estructurales actuales:
 
 - ✅ Hecho: `images/bg/galaxy.png` se mantiene como original, pero el fondo principal usa `images/bg/galaxy.webp` optimizado.
 - Se carga FontAwesome completo mediante `fontawesome/js/all.min.js`, con un peso muy alto para pocos iconos.
-- Google Fonts carga demasiados pesos y variantes de Roboto.
+- ✅ Hecho: Google Fonts carga solo los pesos de Roboto usados y usa `display=swap` con `preconnect`.
 - Se cargan librerías que parecen no estar en uso o solo parcialmente:
   - Validación de formularios.
   - Código de blog.
@@ -211,8 +212,8 @@ Tareas recomendadas:
 - Añadir `loading="lazy"` a imágenes e iframe no críticos.
 - ✅ Hecho: eliminar Google Maps JS API si se mantiene solo el iframe.
 - Cargar el mapa solo bajo demanda o sustituirlo por texto/enlace.
-- Reducir Google Fonts a pesos estrictamente necesarios.
-- Añadir `display=swap` y `preconnect` si se mantienen Google Fonts.
+- ✅ Hecho: reducir Google Fonts a pesos estrictamente necesarios.
+- ✅ Hecho: añadir `display=swap` y `preconnect` si se mantienen Google Fonts.
 - Sustituir FontAwesome completo por iconos mínimos o SVG inline.
 - Eliminar librerías no usadas.
 
@@ -324,7 +325,7 @@ Tareas recomendadas:
 | 8 | ✅ Hecho | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
 | 9 | ⏳ Pendiente | Añadir labels, botones reales y nombres accesibles | Alto | Medio |
 | 10 | ⏳ Pendiente | Eliminar librerías no usadas | Alto | Bajo |
-| 11 | ⏳ Pendiente | Reducir Google Fonts y añadir `display=swap` | Medio-Alto | Bajo |
+| 11 | ✅ Hecho | Reducir Google Fonts y añadir `display=swap` | Medio-Alto | Bajo |
 | 12 | 🟡 Hecho parcial | Añadir lazy loading a imágenes e iframe | Medio-Alto | Bajo |
 | 13 | ⏳ Pendiente | Añadir dimensiones y `alt` adecuados en imágenes | Medio-Alto | Bajo |
 | 14 | ✅ Hecho | Añadir JSON-LD `Person` o `ProfilePage` | Medio-Alto | Bajo |
