@@ -33,6 +33,7 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Añadido `title` y `loading="lazy"` al iframe de Google Maps.
 - Generada versión WebP optimizada de `images/bg/galaxy.png` y usada como fondo principal.
 - Reducida la carga de Google Fonts a los pesos de Roboto usados y añadido `display=swap` con `preconnect`.
+- Añadida página `404.html` personalizada compatible con GitHub Pages.
 
 ## Estrategia de idiomas
 
@@ -111,7 +112,7 @@ Problemas estructurales actuales:
 
 - La versión heredada `spanish.html` se ha eliminado; la URL española principal es `/`.
 - Las dos páginas principales comparten el mismo título, aunque tienen `meta description` localizada.
-- La página 404 actual es la genérica de GitHub Pages y no mantiene navegación, idioma ni marca del sitio.
+- ✅ Hecho: añadida página `404.html` personalizada compatible con GitHub Pages.
 - La jerarquía semántica es débil: no hay un `<h1>` claro.
 - Muchos títulos visuales son `div` en lugar de encabezados reales.
 - Muchas imágenes informativas tienen `alt=""`.
@@ -195,7 +196,7 @@ Tareas recomendadas:
 - ✅ Hecho: añadir canonical y `hreflang`.
 - ✅ Hecho: añadir `robots.txt`.
 - ✅ Hecho: añadir `sitemap.xml`.
-- ⏳ Añadir una página 404 personalizada compatible con GitHub Pages.
+- ✅ Hecho: añadir una página 404 personalizada compatible con GitHub Pages.
 - ✅ Hecho: añadir Open Graph y Twitter Cards.
 - ✅ Hecho: añadir JSON-LD con `Person` o `ProfilePage`.
 - ✅ Hecho: normalizar enlaces del selector de idioma.
@@ -330,7 +331,7 @@ Tareas recomendadas:
 | 13 | ⏳ Pendiente | Añadir dimensiones y `alt` adecuados en imágenes | Medio-Alto | Bajo |
 | 14 | ✅ Hecho | Añadir JSON-LD `Person` o `ProfilePage` | Medio-Alto | Bajo |
 | 15 | ✅ Hecho | Crear `robots.txt` y `sitemap.xml` | Medio | Bajo |
-| 16 | ⏳ Pendiente | Añadir página 404 personalizada compatible con GitHub Pages | Medio | Bajo |
+| 16 | ✅ Hecho | Añadir página 404 personalizada compatible con GitHub Pages | Medio | Bajo |
 | 17 | ⏳ Pendiente | Eliminar `default.php`, LESS no usado y assets residuales | Medio | Bajo-Medio |
 | 18 | ⏳ Pendiente | Normalizar rutas y enlaces internos | Medio | Medio |
 | 19 | ⏳ Pendiente | Reemplazar popups complejos por tarjetas más simples | Medio | Medio |
