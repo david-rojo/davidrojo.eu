@@ -31,6 +31,7 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Añadido un `<h1>` principal en las páginas de español e inglés.
 - Añadidos nombres accesibles a los enlaces principales con iconos.
 - Añadido `title` y `loading="lazy"` al iframe de Google Maps.
+- Generada versión WebP optimizada de `images/bg/galaxy.png` y usada como fondo principal.
 
 ## Estrategia de idiomas
 
@@ -116,7 +117,7 @@ Problemas estructurales actuales:
 
 ### Lighthouse y rendimiento
 
-- `images/bg/galaxy.png` pesa aproximadamente 3,4 MB.
+- ✅ Hecho: `images/bg/galaxy.png` se mantiene como original, pero el fondo principal usa `images/bg/galaxy.webp` optimizado.
 - Se carga FontAwesome completo mediante `fontawesome/js/all.min.js`, con un peso muy alto para pocos iconos.
 - Google Fonts carga demasiados pesos y variantes de Roboto.
 - Se cargan librerías que parecen no estar en uso o solo parcialmente:
@@ -204,7 +205,7 @@ Objetivo: reducir peso, mejorar Lighthouse y hacer la carga más rápida.
 
 Tareas recomendadas:
 
-- Optimizar `images/bg/galaxy.png`.
+- ✅ Hecho: optimizar `images/bg/galaxy.png` generando `images/bg/galaxy.webp`.
 - Convertir imágenes grandes a WebP o AVIF.
 - Añadir dimensiones a imágenes.
 - Añadir `loading="lazy"` a imágenes e iframe no críticos.
@@ -315,7 +316,7 @@ Tareas recomendadas:
 |---:|---|---|---|---|
 | 1 | ✅ Hecho | Poner español en `/` e inglés en `/en/` | Alto | Medio |
 | 2 | ✅ Hecho | Añadir `meta description`, canonical, `hreflang` y `lang` correcto | Alto | Bajo |
-| 3 | ⏳ Pendiente | Optimizar `images/bg/galaxy.png` | Alto | Bajo |
+| 3 | ✅ Hecho | Optimizar `images/bg/galaxy.png` | Alto | Bajo |
 | 4 | ✅ Hecho | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
 | 5 | ⏳ Pendiente | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
 | 6 | 🟡 Hecho parcial | Simplificar el formulario de contacto y limpiar su JS heredado | Alto | Medio |
