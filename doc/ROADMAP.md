@@ -40,6 +40,7 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Eliminado `default.php`, página residual del hosting anterior sin uso en GitHub Pages.
 - Eliminada la inicialización JS de `.post-lightbox` al no existir galería/blog activo en las páginas principales.
 - Traducidos textos visibles residuales en inglés de la versión española (`All` y `View Web`).
+- Eliminada la carpeta `less/` al no existir pipeline de compilación y cargarse directamente los CSS finales.
 
 ## Estrategia de idiomas
 
@@ -96,7 +97,7 @@ Componentes principales:
 - `index.html`: versión española actual.
 - `en/index.html`: versión inglesa actual.
 - `css/`: estilos compilados y librerías CSS.
-- `less/`: fuentes LESS heredadas de la plantilla.
+- ✅ Eliminado: `less/`, fuentes LESS heredadas de la plantilla sin pipeline activo.
 - `js/`: jQuery, plugins de plantilla y `main.js`.
 - `images/`: foto, logos, fondo, banderas y favicon.
 - `fontawesome/`: distribución completa de FontAwesome.
@@ -175,7 +176,7 @@ Problemas estructurales actuales:
 - `js/ionicons.js` presente pero comentado.
 - ✅ Hecho: `default.php`, residual del hosting anterior, se ha eliminado.
 - FontAwesome incluye CSS, JS, LESS, SCSS, metadata, sprites, SVGs y webfonts completos.
-- `less/` puede estar obsoleto si no se recompila CSS.
+- ✅ Hecho: `less/` se ha eliminado al no existir recompilación CSS.
 - Scripts condicionales para IE9 por HTTP son obsoletos.
 
 ### Riesgos técnicos
@@ -258,7 +259,7 @@ Tareas recomendadas:
 - ✅ Hecho: eliminar `mailer/` al no haber backend PHP real.
 - ✅ Hecho: eliminar `default.php` si no tiene función en producción.
 - Eliminar assets de FontAwesome no usados.
-- Revisar si `less/` debe mantenerse o eliminarse.
+- ✅ Hecho: revisar si `less/` debe mantenerse o eliminarse.
 
 ### Fase 5: Mantenibilidad e i18n
 
