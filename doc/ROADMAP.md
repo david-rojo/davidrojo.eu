@@ -100,7 +100,7 @@ Componentes principales:
 - ✅ Eliminado: `less/`, fuentes LESS heredadas de la plantilla sin pipeline activo.
 - `js/`: jQuery, plugins de plantilla y `main.js`.
 - `images/`: foto, logos, fondo, banderas y favicon.
-- `fontawesome/`: distribución completa de FontAwesome.
+- ✅ Eliminado: `fontawesome/`, distribución completa de FontAwesome que ya no se cargaba.
 - `fonts/`: fuentes de Ionicons.
 - `.htaccess`: reglas para URLs sin extensión y actualización de peticiones inseguras.
 - `CNAME`: dominio personalizado.
@@ -127,7 +127,7 @@ Problemas estructurales actuales:
 ### Lighthouse y rendimiento
 
 - ✅ Hecho: `images/bg/galaxy.png` se mantiene como original, pero el fondo principal usa `images/bg/galaxy.webp` optimizado.
-- Se carga FontAwesome completo mediante `fontawesome/js/all.min.js`, con un peso muy alto para pocos iconos.
+- ✅ Hecho: las páginas principales ya no cargan FontAwesome completo; sus pocos usos se han sustituido por Ionicons ya cargados.
 - ✅ Hecho: Google Fonts carga solo los pesos de Roboto usados y usa `display=swap` con `preconnect`.
 - Se cargan librerías que parecen no estar en uso o solo parcialmente:
   - Validación de formularios.
@@ -175,7 +175,7 @@ Problemas estructurales actuales:
 - La inicialización y assets de Owl Carousel se han eliminado al no existir carrusel real.
 - `js/ionicons.js` presente pero comentado.
 - ✅ Hecho: `default.php`, residual del hosting anterior, se ha eliminado.
-- FontAwesome incluye CSS, JS, LESS, SCSS, metadata, sprites, SVGs y webfonts completos.
+- ✅ Hecho: eliminada la carpeta vendorizada de FontAwesome tras sustituir sus usos por Ionicons.
 - ✅ Hecho: `less/` se ha eliminado al no existir recompilación CSS.
 - Scripts condicionales para IE9 por HTTP son obsoletos.
 
@@ -223,7 +223,7 @@ Tareas recomendadas:
 - Cargar el mapa solo bajo demanda o sustituirlo por texto/enlace.
 - ✅ Hecho: reducir Google Fonts a pesos estrictamente necesarios.
 - ✅ Hecho: añadir `display=swap` y `preconnect` si se mantienen Google Fonts.
-- Sustituir FontAwesome completo por iconos mínimos o SVG inline.
+- ✅ Hecho: sustituir FontAwesome completo por iconos mínimos ya disponibles en Ionicons.
 - Eliminar librerías no usadas.
 
 ### Fase 3: Accesibilidad
@@ -258,7 +258,7 @@ Tareas recomendadas:
 - Revisar necesidad de Masonry, ImagesLoaded y Magnific Popup.
 - ✅ Hecho: eliminar `mailer/` al no haber backend PHP real.
 - ✅ Hecho: eliminar `default.php` si no tiene función en producción.
-- Eliminar assets de FontAwesome no usados.
+- ✅ Hecho: eliminar assets de FontAwesome no usados.
 - ✅ Hecho: revisar si `less/` debe mantenerse o eliminarse.
 
 ### Fase 5: Mantenibilidad e i18n
@@ -328,7 +328,7 @@ Tareas recomendadas:
 | 2 | ✅ Hecho | Añadir `meta description`, canonical, `hreflang` y `lang` correcto | Alto | Bajo |
 | 3 | ✅ Hecho | Optimizar `images/bg/galaxy.png` | Alto | Bajo |
 | 4 | ✅ Hecho | Eliminar Google Maps JS API y código asociado si no se usa | Alto | Bajo |
-| 5 | ⏳ Pendiente | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
+| 5 | ✅ Hecho | Sustituir FontAwesome completo por iconos mínimos | Alto | Medio |
 | 6 | 🟡 Hecho parcial | Simplificar el formulario de contacto y limpiar su JS heredado | Alto | Medio |
 | 7 | 🟡 Hecho parcial | Añadir estructura semántica con `<h1>`, `<h2>`, `<main>` y `<nav>` | Alto | Bajo |
 | 8 | ✅ Hecho | Corregir enlaces externos con `rel="noopener noreferrer"` | Alto | Bajo |
