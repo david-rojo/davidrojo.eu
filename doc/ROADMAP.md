@@ -147,7 +147,7 @@ Problemas estructurales actuales:
 - El formulario visible, su lógica JS de validación/envío y los assets PHP heredados se han eliminado.
 - El iframe de Google Maps ya tiene `title` en las páginas principales, pero conviene mantener esta regla en futuros iframes.
 - ✅ Hecho: corregir enlaces externos con `target="_blank"` y `rel="noopener noreferrer"`.
-- Las barras de progreso transmiten información visual sin semántica accesible.
+- ✅ Hecho: las barras de progreso incluyen semántica accesible con `role="progressbar"` y valores ARIA.
 - Los filtros de clientes no tienen `fieldset` ni `legend`.
 - No hay enlace de salto al contenido principal.
 - Debe revisarse contraste y estados de foco visibles.
