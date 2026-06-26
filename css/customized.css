@@ -1,65 +1,54 @@
 /* CUSTOM CSS */
 
-/* colors_sel */
-.lang_sel {
-	position:fixed;
-	top:100px;
-	left:-180px;
-	box-shadow:0 0 15px rgba(0,0,0,.1);
-	-moz-box-shadow:0 0 15px rgba(0,0,0,.1);
-	-webkit-box-shadow:0 0 15px rgba(0,0,0,.1);
-	width:180px;
-	padding:20px;
-	text-align:center;
-	transition:all .4s ease 0s;
-	-moz-transition:all .4s ease 0s;
-	-webkit-transition:all .4s ease 0s;
-	-o-transition:all .4s ease 0s;
-	background:#fff;
-	z-index:104
+/* Language switch */
+body > .language-switch {
+	position: fixed;
+	top: 24px;
+	left: 24px;
+	z-index: 1100;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	min-width: 64px;
+	height: 42px;
+	padding: 0 12px;
+	background: rgba(0, 68, 148, 0.92);
+	color: #ffffff;
+	border: 2px solid #ffffff;
+	font-size: 15px;
+	font-weight: 800;
+	line-height: 1;
+	text-decoration: none;
+	border-radius: 999px;
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-/*
-.colors_sel:hover {
-	left:0
+body > .language-switch img {
+	display: block;
+	width: 18px;
+	height: 12px;
+	object-fit: cover;
+	border-radius: 1px;
 }
 
-.colors_sel .tit {
-	text-transform:uppercase;
-	font-weight:300;
-	border-bottom:1px solid #eee;
-	padding-bottom:12px;
-	margin-bottom:12px
+body > .language-switch:hover,
+body > .language-switch:focus {
+	color: #ffffff;
+	text-decoration: none;
+	outline: 2px solid #ffffff;
+	outline-offset: 3px;
 }
 
-.colors_sel li {
-	display:inline-block;
-	vertical-align:top;
-	margin:10px 8px
-}
-
-.colors_sel li span {
-	display:block;
-	width:20px;
-	height:20px
-}
-*/
-
-.lang_sel a.btn_ic {
-	position:absolute;
-	top:0;
-	right:-46px;
-	width:46px;
-	height:46px;
-	box-shadow:0 0 15px rgba(0,0,0,.1);
-	-moz-box-shadow:0 0 15px rgba(0,0,0,.1);
-	-webkit-box-shadow:0 0 15px rgba(0,0,0,.1);
-	background:#fff;
-	padding-top:13px
-}
-
-.lang_sel .btn_ic .ion {
-	font-size:21px
+@media (max-width: 720px) {
+	body > .language-switch {
+		top: 16px;
+		left: 16px;
+		height: 42px;
+		min-width: 62px;
+		padding: 0 11px;
+		font-size: 14px;
+	}
 }
 
 /* Icons */

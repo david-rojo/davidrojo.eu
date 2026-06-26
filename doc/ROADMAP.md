@@ -155,7 +155,7 @@ Problemas estructurales actuales:
 
 ### Diseño y experiencia de usuario
 
-- El selector de idioma es poco visible.
+- ✅ Hecho: el selector de idioma es visible como acceso fijo `ES`/`EN` sin depender de banderas.
 - La navegación lateral puede resultar poco evidente en escritorio.
 - La sección de contacto ya no muestra formulario visible y se ha eliminado su lógica JS heredada.
 - El mapa ocupa espacio y añade carga externa con poco valor práctico.
