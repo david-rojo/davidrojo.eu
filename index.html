@@ -82,6 +82,8 @@
 
 <body>
 
+	<a href="#main-content" class="skip-link">Saltar al contenido</a>
+
 	<div class="lang_sel">
 		<a href="en/" class="btn_ic" title="View in English" aria-label="View in English">
 			<!--<span class="ion ion-gear-b"></span>-->
@@ -148,7 +150,7 @@
 		</header>
 		
 		<!-- Container -->
-		<main class="container">
+		<main id="main-content" class="container" tabindex="-1">
 
 			<!-- Started -->
 			<div class="section started">
@@ -735,33 +737,36 @@
 					<h2 class="title">Clientes</h2>
 					<div class="filter-menu">
 						<div class="filters">
-							<div class="btn-group">
-								<div class="f_btn btn_animated active">
-									<div class="circle">
-										<label><input type="radio" name="fl_radio" value="box-item" />Todos</label>
+							<fieldset aria-label="Clientes">
+								<legend class="sr-only"></legend>
+								<div class="btn-group">
+									<div class="f_btn btn_animated active">
+										<div class="circle">
+											<label><input type="radio" name="fl_radio" value="box-item" checked />Todos</label>
+										</div>
+									</div>
+									<div class="f_btn btn_animated">
+										<div class="circle">
+											<label><input type="radio" name="fl_radio" value="f-kairos" />Kairós</label>
+										</div>
+									</div>
+									<div class="f_btn btn_animated">
+										<div class="circle">
+											<label><input type="radio" name="fl_radio" value="f-atos" />Atos</label>
+										</div>
+									</div>
+									<div class="f_btn btn_animated">
+										<div class="circle">
+											<label><input type="radio" name="fl_radio" value="f-raona" />Raona</label>
+										</div>
+									</div>
+									<div class="f_btn btn_animated">
+										<div class="circle">
+											<label><input type="radio" name="fl_radio" value="f-indra" />Indra</label>
+										</div>
 									</div>
 								</div>
-								<div class="f_btn btn_animated">
-									<div class="circle">
-										<label><input type="radio" name="fl_radio" value="f-kairos" />Kairós</label>
-									</div>
-								</div>
-								<div class="f_btn btn_animated">
-									<div class="circle">
-										<label><input type="radio" name="fl_radio" value="f-atos" />Atos</label>
-									</div>
-								</div>
-								<div class="f_btn btn_animated">
-									<div class="circle">
-										<label><input type="radio" name="fl_radio" value="f-raona" />Raona</label>
-									</div>
-								</div>
-								<div class="f_btn btn_animated">
-									<div class="circle">
-										<label><input type="radio" name="fl_radio" value="f-indra" />Indra</label>
-									</div>
-								</div>
-							</div>
+							</fieldset>
 						</div>
 					</div>
 					<div class="row box-items">

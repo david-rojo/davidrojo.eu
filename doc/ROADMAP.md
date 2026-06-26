@@ -148,8 +148,8 @@ Problemas estructurales actuales:
 - El iframe de Google Maps ya tiene `title` en las páginas principales, pero conviene mantener esta regla en futuros iframes.
 - ✅ Hecho: corregir enlaces externos con `target="_blank"` y `rel="noopener noreferrer"`.
 - ✅ Hecho: las barras de progreso incluyen semántica accesible con `role="progressbar"` y valores ARIA.
-- Los filtros de clientes no tienen `fieldset` ni `legend`.
-- No hay enlace de salto al contenido principal.
+- ✅ Hecho: los filtros de clientes tienen `fieldset`, `legend` accesible y opción inicial marcada.
+- ✅ Hecho: añadidos enlaces de salto al contenido principal para navegación por teclado.
 - Debe revisarse contraste y estados de foco visibles.
 - Las animaciones deberían respetar mejor `prefers-reduced-motion`.
 
