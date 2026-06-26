@@ -56,6 +56,24 @@ GitHub Pages must be configured with:
 
 The static site is currently uploaded from the repository root.
 
+## Lighthouse
+
+Pull requests run an informational Lighthouse CI workflow for `/` and `/en/`.
+
+Workflow:
+
+```text
+.github/workflows/lighthouse.yml
+```
+
+Configuration:
+
+```text
+.lighthouserc.json
+```
+
+Current assertions are warnings only, so Lighthouse reports do not block pull requests.
+
 ## Customization
 
 This webpage is a customization of the html template available in [david-rojo/personal-webpage-template](https://github.com/david-rojo/personal-webpage-template)
