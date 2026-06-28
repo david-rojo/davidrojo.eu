@@ -1,8 +1,13 @@
 # Introduction
 
+[![Deploy](https://github.com/david-rojo/davidrojo.eu/actions/workflows/deploy.yml/badge.svg)](https://github.com/david-rojo/davidrojo.eu/actions/workflows/deploy.yml)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fdavidrojo.eu&label=website)](https://davidrojo.eu/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-222?logo=githubpages&logoColor=white)](https://davidrojo.eu/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?logo=javascript&logoColor=222)](https://davidrojo.eu/)
+
 You can edit any page with a simple text editor. When you push changes to `main`, the web page is published automatically through GitHub Actions.
 
-It has been developed using html5, css, javascript, bootstrap, php and jquery
+It is a static website built with HTML, CSS, JavaScript and jQuery.
 
 ## Local development
 
@@ -52,7 +57,7 @@ Workflow:
 
 The workflow runs on pushes to `main` and can also be triggered manually from GitHub Actions.
 
-GitHub Pages must be configured with:
+GitHub Pages must be configured to use GitHub Actions as the source.
 
 The static site is currently uploaded from the repository root.
 
