@@ -46,51 +46,30 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 
 ## Estrategia de idiomas
 
-La web debería tener el español como idioma principal y el inglés como idioma alternativo.
+Decisión actual: simplificar la web a una única URL pública.
 
-Estructura recomendada:
+Estructura objetivo:
 
-- Español: `https://davidrojo.eu/`
-- Inglés: `https://davidrojo.eu/en/`
+- Página única: `https://davidrojo.eu/`.
+- Español como idioma por defecto.
+- Inglés como idioma alternativo cargado en cliente.
+- No usar `?lang=en` ni otros parámetros de idioma.
+- No mantener `/en/` como URL pública.
+- Si se visita `/en/`, debe resolverse mediante la `404.html` del sitio.
+- Guardar la preferencia de idioma en `localStorage`.
 
-No se recomienda tener una única página HTML que cambie todos los textos solo con JavaScript, porque perjudica la indexación, complica las metadatos por idioma y dificulta tener URLs compartibles correctamente.
+Esta decisión prioriza simplicidad de mantenimiento frente a SEO multiidioma. Al ser una web personal con bajo tráfico esperado, se acepta perder URLs indexables separadas por idioma.
 
-La mejor opción es mantener una única fuente o plantilla y generar dos HTML estáticos finales:
+La implementación recomendada es:
 
-- `/index.html` para español.
-- `/en/index.html` para inglés.
-
-Cada idioma debería tener:
-
-- Atributo `lang` correcto.
-- Título propio.
-- `meta description` propia.
-- URL canonical.
-- Enlaces `hreflang` entre idiomas.
-- `hreflang="x-default"` apuntando a la home en español.
-- Metadatos sociales propios si se añaden Open Graph o Twitter Cards.
-
-Ejemplo para la versión española:
-
-```html
-<html lang="es">
-  <link rel="canonical" href="https://davidrojo.eu/" />
-  <link rel="alternate" hreflang="es" href="https://davidrojo.eu/" />
-  <link rel="alternate" hreflang="en" href="https://davidrojo.eu/en/" />
-  <link rel="alternate" hreflang="x-default" href="https://davidrojo.eu/" />
-</html>
-```
-
-Ejemplo para la versión inglesa:
-
-```html
-<html lang="en">
-  <link rel="canonical" href="https://davidrojo.eu/en/" />
-  <link rel="alternate" hreflang="es" href="https://davidrojo.eu/" />
-  <link rel="alternate" hreflang="en" href="https://davidrojo.eu/en/" />
-  <link rel="alternate" hreflang="x-default" href="https://davidrojo.eu/" />
-</html>
-```
+- Mantener `index.html` como única página principal.
+- Usar atributos `data-i18n` en textos traducibles.
+- Añadir un diccionario JavaScript para `es` y `en`.
+- Cambiar el selector de idioma a controles `<button>`.
+- Actualizar dinámicamente textos visibles, `<html lang>`, `<title>` y `meta description`.
+- Eliminar `en/index.html`.
+- Eliminar `/en/` de `sitemap.xml`.
+- Quitar `hreflang` multi-URL de `index.html`.
 
 ## Arquitectura actual
 
@@ -260,47 +239,25 @@ Tareas recomendadas:
 
 ### Fase 5: Mantenibilidad e i18n
 
-Objetivo: dejar de mantener dos HTML manualmente.
+Objetivo: dejar de mantener dos HTML manualmente y simplificar la web a una única URL pública.
 
-Opciones:
+### Próximo paso prioritario: simplificar idiomas a una sola URL
 
-- Script de build mínimo con una plantilla HTML y ficheros de datos por idioma.
-- Astro como generador estático ligero.
-- Eleventy como generador estático simple.
-- Mantener dos HTML manuales temporalmente, pero solo como solución provisional.
+Esta debe ser la primera tarea a acometer cuando se retome el trabajo.
 
-Opción recomendada a medio plazo:
+Tareas:
 
-```text
-src/
-  data/
-    es.json
-    en.json
-  template.html
-  build.js
-
-dist/
-  index.html
-  en/
-    index.html
-```
-
-Alternativa con Astro:
-
-```text
-src/
-  pages/
-    index.astro
-    en/index.astro
-  components/
-    Layout.astro
-    Hero.astro
-    Skills.astro
-    Experience.astro
-  i18n/
-    es.ts
-    en.ts
-```
+- Convertir `index.html` en la única página principal.
+- Añadir sistema i18n en cliente con diccionario `es`/`en`.
+- Usar español como idioma por defecto.
+- Guardar el idioma elegido en `localStorage`.
+- Cambiar el selector de idioma de enlace a botones.
+- Eliminar `en/index.html`.
+- Asegurar que `/en/` devuelve 404.
+- Eliminar `/en/` de `sitemap.xml`.
+- Quitar `hreflang` multi-URL.
+- Actualizar dinámicamente `<html lang>`, `<title>` y `meta description`.
+- No usar `?lang=en` ni otros parámetros de idioma.
 
 ### Fase 6: Diseño y experiencia de usuario
 
@@ -338,17 +295,18 @@ Tareas recomendadas:
 |  15 | ✅ Hecho         | Crear `robots.txt` y `sitemap.xml`                                    | Medio      | Bajo       |
 |  16 | ✅ Hecho         | Añadir página 404 personalizada compatible con GitHub Pages           | Medio      | Bajo       |
 |  17 | 🟡 Hecho parcial | Eliminar `default.php`, LESS no usado y assets residuales             | Medio      | Bajo-Medio |
-|  18 | ⏳ Pendiente     | Normalizar rutas y enlaces internos                                   | Medio      | Medio      |
+|  18 | ⏳ Pendiente     | Simplificar idiomas a una sola URL con i18n en cliente                | Medio-Alto | Alto       |
 |  19 | ✅ Hecho         | Reemplazar popups complejos por tarjetas más simples                  | Medio      | Medio      |
-|  20 | ⏳ Pendiente     | Introducir una plantilla o generador estático para evitar duplicación | Medio      | Alto       |
+|  20 | ⏳ Pendiente     | Normalizar rutas y enlaces internos tras eliminar `/en/`              | Medio      | Medio      |
 
 ## Criterio de ejecución recomendado
 
-No acometer todo a la vez. La secuencia más razonable es:
+No acometer todo a la vez. La siguiente tarea prioritaria al retomar el trabajo es simplificar idiomas a una única URL pública con i18n en cliente y persistencia en `localStorage`.
 
-1. Corregir SEO e idiomas.
-2. Optimizar assets y eliminar scripts claramente innecesarios.
-3. Mejorar accesibilidad básica.
-4. Limpiar dependencias y ficheros residuales.
-5. Introducir generación estática si se quiere reducir duplicación.
-6. Rediseñar o modernizar UX cuando la base técnica esté más limpia.
+Después de ese cambio, la secuencia razonable es:
+
+1. Normalizar rutas, `sitemap.xml`, canonical y metadatos tras eliminar `/en/`.
+2. Mejorar accesibilidad básica pendiente: foco visible, navegación por teclado y contraste.
+3. Revisar copy y consistencia visual.
+4. Valorar mejoras de navegación y experiencia de usuario.
+5. Rediseñar o modernizar UX cuando la base técnica esté más limpia.
