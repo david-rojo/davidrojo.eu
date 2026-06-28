@@ -77,7 +77,3 @@ Current assertions are warnings only, so Lighthouse reports do not block pull re
 ## Customization
 
 This webpage is a customization of the html template available in [david-rojo/personal-webpage-template](https://github.com/david-rojo/personal-webpage-template)
-
-## Author
-
-[David Rojo (@david-rojo)](https://github.com/david-rojo)

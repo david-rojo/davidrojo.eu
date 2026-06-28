@@ -8,6 +8,7 @@ $(function () {
 	
 	var width = $(window).width();
 	var height = $(window).height();
+	var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	$('.current-year').text(new Date().getFullYear());
 	
 	/* Preloader */
@@ -19,7 +20,7 @@ $(function () {
 	});
 
 	/* Fade animations on scroll */
-	if (width > 720) {
+	if (!reduceMotion && width > 720 && typeof ScrollReveal !== 'undefined') {
 		window.sr = ScrollReveal();
 		sr.reveal('.animated');
 	}
@@ -45,9 +46,13 @@ $(function () {
 			var id = $(this).attr('href');
 			var h = parseFloat($(id).offset().top);
 			
-			$('body,html').animate({
-				scrollTop: h
-			}, 800);
+			if (reduceMotion) {
+				$('body,html').scrollTop(h);
+			} else {
+				$('body,html').animate({
+					scrollTop: h
+				}, 800);
+			}
 			
 			return false;
 		});
@@ -83,6 +88,10 @@ $(function () {
 
 	/* Button hover effect */
 	$('.btn_animated').on('mouseenter', '.circle', function(e){
+		if (reduceMotion) {
+			return;
+		}
+
 		if ($(this).find(".ink").length === 0) {
 			$(this).prepend("<span class='ink'></span>");
 		}
@@ -103,38 +112,17 @@ $(function () {
 		}).addClass("animate");
 	});
 	
-	/* Initialize masonry items */
-	var $container = $('.box-items');
-	
-	$container.imagesLoaded(function(){
-		$container.multipleFilterMasonry({
-			itemSelector: '.box-item',
-			filtersGroupSelector: '.filters',
-			percentPosition: true,
-			gutter: 0
-		});
-	});
-	
-	/* 12. Initialize masonry filter */
+	/* Clients filter */
 	$('.filters label').on('change', 'input[type="radio"]', function() {
+		var filter = $(this).val();
+
 		if ($(this).is(':checked')) {
 			$('.f_btn').removeClass('active');
 			$(this).closest('.f_btn').addClass('active');
 		}
-		/* Refresh Portfolio magnific popup */
-		$('.has-popup').magnificPopup({
-			type: 'inline',
-			overflowY: 'auto',
-			closeBtnInside: true,
-			mainClass: 'mfp-fade'
+
+		$('.box-item').each(function() {
+			$(this).toggle(filter === 'box-item' || $(this).hasClass(filter));
 		});
-	});
-	
-	/* Portfolio magnific popup */
-	$('.has-popup').magnificPopup({
-		type: 'inline',
-		overflowY: 'auto',
-		closeBtnInside: true,
-		mainClass: 'mfp-fade'
 	});
 });
