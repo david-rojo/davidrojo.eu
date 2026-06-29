@@ -23,7 +23,6 @@ Open:
 
 ```text
 http://localhost:8000/
-http://localhost:8000/en/
 ```
 
 ### Using Docker Compose
@@ -36,14 +35,13 @@ Open:
 
 ```text
 http://localhost:8080/
-http://localhost:8080/en/
 ```
 
 Stop the server with `Ctrl + C`.
 
-Spanish is served from `/` and English from `/en/`.
+The site is served from `/`. Spanish is the default language and English is selected client-side with the language switcher.
 
-Note: GitHub Pages does not process `.htaccess`, so production URLs should use real static paths such as `/` and `/en/`.
+Note: GitHub Pages does not process `.htaccess`. The English content is served from the main page through client-side i18n.
 
 ## Deployment
 
@@ -63,7 +61,7 @@ The static site is currently uploaded from the repository root.
 
 ## Lighthouse
 
-Pull requests run an informational Lighthouse CI workflow for `/` and `/en/`.
+Pull requests run an informational Lighthouse CI workflow for `/`.
 
 Workflow:
 

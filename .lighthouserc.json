@@ -2,8 +2,7 @@
   "ci": {
     "collect": {
       "url": [
-        "http://localhost:8080/",
-        "http://localhost:8080/en/"
+        "http://localhost:8080/"
       ],
       "startServerCommand": "python3 -m http.server 8080",
       "startServerReadyPattern": "Serving HTTP",

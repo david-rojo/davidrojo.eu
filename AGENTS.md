@@ -4,17 +4,18 @@
 
 Este repositorio contiene la web personal estática de `davidrojo.eu`.
 
-Actualmente es un proyecto HTML/CSS/JS estático basado en una plantilla personalizada. La web tiene dos versiones de idioma:
+Actualmente es un proyecto HTML/CSS/JS estático basado en una plantilla personalizada. La web tiene una única URL pública y dos idiomas:
 
-- Español como idioma principal.
-- Inglés como idioma alternativo.
+- Español como idioma principal y fallback HTML visible sin JavaScript.
+- Inglés como idioma alternativo mediante i18n en cliente.
 
-La estrategia recomendada a futuro es:
+La estrategia actual es:
 
-- `https://davidrojo.eu/` para español.
-- `https://davidrojo.eu/en/` para inglés.
-- Mantener una única fuente o plantilla siempre que sea posible.
-- Generar dos páginas HTML estáticas finales para conservar buen SEO.
+- `https://davidrojo.eu/` como única URL pública.
+- No mantener `/en/` como URL pública.
+- No usar parámetros tipo `?lang=en`.
+- Mantener una única página HTML principal con contenido español como fallback.
+- Usar `js/i18n.js` para cambiar a inglés en cliente y guardar preferencia en `localStorage`.
 
 ## Publicación y hosting
 
@@ -26,9 +27,8 @@ La estrategia recomendada a futuro es:
 - No asumir que `.htaccess` tiene efecto en producción si el tráfico se sirve desde GitHub Pages.
 - Las rutas deben funcionar como sitio estático compatible con GitHub Pages.
 - Para redirecciones en GitHub Pages, preferir soluciones compatibles con HTML estático o configuración propia de GitHub Pages, no reglas Apache.
-- La estructura principal esperada es:
-  - Español: `https://davidrojo.eu/`
-  - Inglés: `https://davidrojo.eu/en/`
+- La estructura principal esperada es una única página pública: `https://davidrojo.eu/`.
+- Si se visita una ruta inexistente como `/en/`, debe resolverse mediante la `404.html` del sitio.
 
 ## Reglas generales
 
@@ -36,7 +36,7 @@ La estrategia recomendada a futuro es:
 - Priorizar cambios pequeños, claros e incrementales.
 - Mantener la web como sitio estático salvo que se apruebe otra arquitectura.
 - Evitar añadir dependencias nuevas.
-- Antes de cambiar estructura, SEO, scripts o idiomas, revisar ambas versiones.
+- Antes de cambiar estructura, SEO, scripts o idiomas, revisar el HTML base y `js/i18n.js`.
 - No eliminar contenido existente salvo petición explícita.
 - No modificar ficheros no relacionados con la tarea.
 - Mantener el código simple y legible.
@@ -45,22 +45,17 @@ La estrategia recomendada a futuro es:
 
 - El español es el idioma principal por defecto.
 - El inglés es el idioma alternativo.
-- No implementar el cambio de idioma únicamente con JavaScript de cliente.
-- Cada idioma debe tener una URL propia e indexable.
-- Estructura preferida:
-  - Español: `https://davidrojo.eu/`
-  - Inglés: `https://davidrojo.eu/en/`
+- La web usa una única URL pública: `https://davidrojo.eu/`.
+- El contenido base de `index.html` debe estar en español y ser visible sin depender de JavaScript.
+- El cambio a inglés se realiza en cliente mediante `js/i18n.js`.
+- La preferencia de idioma se guarda en `localStorage`.
+- No crear `en/index.html` ni restaurar `/en/` salvo decisión explícita.
 - Evitar URLs tipo `?lang=es` o `?lang=en`.
-- Cada página de idioma debe tener:
-  - `<html lang="es">` o `<html lang="en">`
-  - `<title>` específico
-  - `meta description` específica
-  - URL canonical
-  - enlaces `hreflang`
-  - `hreflang="x-default"` apuntando a la home en español
-- No duplicar títulos ni descripciones entre idiomas.
-- Si se añaden metadatos Open Graph o Twitter Cards, deben estar traducidos por idioma.
-- Si se añaden datos estructurados, preferir JSON-LD con `Person` y/o `ProfilePage`.
+- La URL canonical debe apuntar a `https://davidrojo.eu/`.
+- No usar `hreflang`, porque no hay URLs separadas por idioma.
+- `js/i18n.js` debe actualizar dinámicamente `<html lang>`, `<title>`, `meta description`, Open Graph, Twitter Cards y JSON-LD cuando cambie el idioma.
+- Si se añaden metadatos Open Graph o Twitter Cards, deben tener claves traducidas en `js/i18n.js`.
+- Si se añaden datos estructurados, preferir JSON-LD con `Person` y/o `ProfilePage`, manteniendo URL única.
 
 ## Accesibilidad
 
@@ -97,7 +92,9 @@ La estrategia recomendada a futuro es:
 - El JavaScript actual depende de jQuery y plugins heredados de plantilla.
 - No añadir nuevos plugins de jQuery salvo necesidad clara.
 - Antes de modificar `js/main.js`, comprobar que los elementos del DOM relacionados existen realmente.
-- No añadir traducción dinámica en cliente como estrategia principal de i18n.
+- El i18n actual vive en `js/i18n.js` y funciona en cliente sobre una única URL pública.
+- Mantener `js/i18n.js` simple, sin dependencias nuevas y basado en `data-i18n`, `data-i18n-attr` y `data-i18n-html`.
+- Usar `data-i18n-html` solo para contenido estático controlado del repositorio que necesite enlaces o marcado HTML.
 - Preferir mejora progresiva: el contenido principal debería ser visible sin depender de JavaScript.
 - Eliminar o desactivar código muerto solo después de verificar que no se usa.
 
@@ -130,10 +127,9 @@ El repositorio contiene librerías y assets heredados de plantilla.
 - No actualizar librerías vendorizadas sin necesidad clara.
 - No eliminar ficheros vendorizados sin comprobar primero su uso.
 - Posibles áreas de limpieza:
-  - FontAwesome completo
-  - Google Maps JS
-  - LESS sin pipeline
-  - scripts o estilos de blog/portfolio no usados
+  - Ionicons si se sustituyen sus usos restantes por SVG mínimo.
+  - scripts o estilos de blog/portfolio no usados.
+  - librerías heredadas que no aparezcan referenciadas por `index.html` o `js/main.js`.
 
 ## Roadmap
 
@@ -154,13 +150,15 @@ Orden recomendado de prioridad:
 
 Después de realizar cambios, comprobar según aplique:
 
-- La versión española renderiza correctamente.
-- La versión inglesa renderiza correctamente.
-- Los enlaces de cambio de idioma apuntan a URLs correctas.
-- `lang`, canonical y `hreflang` son correctos.
+- La página renderiza correctamente en español por defecto.
+- El cambio a inglés funciona desde el selector de idioma.
+- La preferencia de idioma se guarda y restaura desde `localStorage`.
+- `/en/` devuelve 404.
+- `lang`, canonical y metadatos dinámicos son correctos.
+- No hay `hreflang` ni enlaces internos a rutas de idioma separadas.
 - No hay errores evidentes en consola.
 - No hay rutas rotas a assets locales.
-- La sección de contacto mantiene enlaces funcionales y el mapa carga correctamente.
+- La sección de contacto mantiene enlaces funcionales.
 - La navegación por teclado sigue funcionando.
 - Los enlaces con `target="_blank"` incluyen `rel="noopener noreferrer"`.
 - Las imágenes tienen `alt` adecuado.
