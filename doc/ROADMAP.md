@@ -43,6 +43,10 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Eliminada la carpeta `less/` al no existir pipeline de compilación y cargarse directamente los CSS finales.
 - Eliminado Magnific Popup: los clientes mantienen filtros y muestran rango temporal y enlace web directamente en la tarjeta.
 - Eliminados Masonry, ImagesLoaded y `masonry-filter.js`; los filtros de clientes usan JavaScript propio mínimo.
+- Simplificada la web a una única URL pública con i18n en cliente, persistencia en `localStorage` y selector de idioma con botones.
+- Eliminada la versión `/en/`; el inglés se sirve desde la página principal mediante i18n en cliente.
+- Normalizados `sitemap.xml`, canonical y metadatos tras eliminar `/en/`.
+- Añadida traducción completa del contenido principal largo en inglés mediante `data-i18n-html`.
 
 ## Estrategia de idiomas
 
@@ -247,17 +251,17 @@ Esta debe ser la primera tarea a acometer cuando se retome el trabajo.
 
 Tareas:
 
-- Convertir `index.html` en la única página principal.
-- Añadir sistema i18n en cliente con diccionario `es`/`en`.
-- Usar español como idioma por defecto.
-- Guardar el idioma elegido en `localStorage`.
-- Cambiar el selector de idioma de enlace a botones.
-- Eliminar `en/index.html`.
-- Asegurar que `/en/` devuelve 404.
-- Eliminar `/en/` de `sitemap.xml`.
-- Quitar `hreflang` multi-URL.
-- Actualizar dinámicamente `<html lang>`, `<title>` y `meta description`.
-- No usar `?lang=en` ni otros parámetros de idioma.
+- ✅ Hecho: convertir `index.html` en la única página principal.
+- ✅ Hecho: añadir sistema i18n en cliente con diccionario `es`/`en`.
+- ✅ Hecho: usar español como idioma por defecto.
+- ✅ Hecho: guardar el idioma elegido en `localStorage`.
+- ✅ Hecho: cambiar el selector de idioma de enlace a botones.
+- ✅ Hecho: eliminar `en/index.html`.
+- ✅ Hecho: asegurar que `/en/` devuelve 404.
+- ✅ Hecho: eliminar `/en/` de `sitemap.xml`.
+- ✅ Hecho: quitar `hreflang` multi-URL.
+- ✅ Hecho: actualizar dinámicamente `<html lang>`, `<title>` y `meta description`.
+- ✅ Hecho: no usar `?lang=en` ni otros parámetros de idioma.
 
 ### Fase 6: Diseño y experiencia de usuario
 
@@ -295,18 +299,17 @@ Tareas recomendadas:
 |  15 | ✅ Hecho         | Crear `robots.txt` y `sitemap.xml`                                    | Medio      | Bajo       |
 |  16 | ✅ Hecho         | Añadir página 404 personalizada compatible con GitHub Pages           | Medio      | Bajo       |
 |  17 | 🟡 Hecho parcial | Eliminar `default.php`, LESS no usado y assets residuales             | Medio      | Bajo-Medio |
-|  18 | ⏳ Pendiente     | Simplificar idiomas a una sola URL con i18n en cliente                | Medio-Alto | Alto       |
+|  18 | ✅ Hecho         | Simplificar idiomas a una sola URL con i18n en cliente                | Medio-Alto | Alto       |
 |  19 | ✅ Hecho         | Reemplazar popups complejos por tarjetas más simples                  | Medio      | Medio      |
-|  20 | ⏳ Pendiente     | Normalizar rutas y enlaces internos tras eliminar `/en/`              | Medio      | Medio      |
+|  20 | ✅ Hecho         | Normalizar rutas y enlaces internos tras eliminar `/en/`              | Medio      | Medio      |
 
 ## Criterio de ejecución recomendado
 
-No acometer todo a la vez. La siguiente tarea prioritaria al retomar el trabajo es simplificar idiomas a una única URL pública con i18n en cliente y persistencia en `localStorage`.
+No acometer todo a la vez. La simplificación de idiomas a una única URL pública con i18n en cliente y persistencia en `localStorage` ya está realizada.
 
 Después de ese cambio, la secuencia razonable es:
 
-1. Normalizar rutas, `sitemap.xml`, canonical y metadatos tras eliminar `/en/`.
-2. Mejorar accesibilidad básica pendiente: foco visible, navegación por teclado y contraste.
-3. Revisar copy y consistencia visual.
-4. Valorar mejoras de navegación y experiencia de usuario.
-5. Rediseñar o modernizar UX cuando la base técnica esté más limpia.
+1. Mejorar accesibilidad básica pendiente: foco visible, navegación por teclado y contraste.
+2. Revisar copy y consistencia visual.
+3. Valorar mejoras de navegación y experiencia de usuario.
+4. Rediseñar o modernizar UX cuando la base técnica esté más limpia.

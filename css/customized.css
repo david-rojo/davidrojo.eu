@@ -6,48 +6,74 @@ body > .language-switch {
 	top: 24px;
 	left: 24px;
 	z-index: 1100;
+	display: inline-grid;
+	grid-template-columns: 1fr 1fr;
+	width: 138px;
+	height: 38px;
+	padding: 4px;
+	background: rgba(0, 68, 148, 0.92);
+	color: #ffffff;
+	border: 0;
+	border-radius: 999px;
+	font-size: 15px;
+	font-weight: 800;
+	box-shadow: 0 7px 18px rgba(0, 0, 0, 0.28);
+}
+
+body > .language-switch .language-switch-btn {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: 7px;
-	min-width: 64px;
-	height: 42px;
-	padding: 0 12px;
-	background: rgba(0, 68, 148, 0.92);
+	gap: 5px;
+	min-width: 0;
+	height: 30px;
+	padding: 0;
+	background: transparent;
 	color: #ffffff;
-	border: 2px solid #ffffff;
-	font-size: 15px;
-	font-weight: 800;
-	line-height: 1;
-	text-decoration: none;
+	border: 0;
 	border-radius: 999px;
-	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+	font: inherit;
+	line-height: 1;
+	cursor: pointer;
 }
 
-body > .language-switch img {
+body > .language-switch .language-switch-btn img {
 	display: block;
-	width: 18px;
-	height: 12px;
+	flex: 0 0 auto;
+	width: 16px;
+	height: 11px;
 	object-fit: cover;
 	border-radius: 1px;
 }
 
-body > .language-switch:hover,
-body > .language-switch:focus {
-	color: #ffffff;
-	text-decoration: none;
+body > .language-switch .language-switch-btn span {
+	display: block;
+	line-height: 1;
+}
+
+body > .language-switch .language-switch-btn.active {
+	background: #ffffff;
+	color: #004494;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.24);
+}
+
+body > .language-switch .language-switch-btn:focus-visible {
 	outline: 2px solid #ffffff;
-	outline-offset: 3px;
+	outline-offset: 2px;
 }
 
 @media (max-width: 720px) {
 	body > .language-switch {
 		top: 16px;
 		left: 16px;
-		height: 42px;
-		min-width: 62px;
-		padding: 0 11px;
+		width: 130px;
+		height: 36px;
+		padding: 3px;
 		font-size: 14px;
+	}
+
+	body > .language-switch .language-switch-btn {
+		height: 30px;
 	}
 }
 
