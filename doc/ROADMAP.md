@@ -167,7 +167,7 @@ Problemas estructurales actuales:
 - jQuery 2.1.4 es antiguo.
 - Dependencias vendorizadas sin versiones ni proceso de actualización claro.
 - Posible falta de efecto de `.htaccess` si el despliegue es GitHub Pages.
-- Google Analytics usa GA4, pero queda pendiente revisar privacidad, cookies y consentimiento si se mantiene tracking.
+- ✅ Hecho parcial: Google Analytics usa GA4 y ahora se carga solo tras consentimiento explícito; queda pendiente una revisión legal completa de privacidad/cookies si se mantiene tracking.
 - Uso de servicios de terceros sin documentación de privacidad o consentimiento.
 - Duplicar contenido entre idiomas aumenta el riesgo de cambios inconsistentes.
 

@@ -95,7 +95,12 @@
 			interestMotorbikes: 'Motos',
 			contactTitle: 'Contacto',
 			footerDevelopedBy: 'Desarrollado por',
-			footerRights: 'Todos los derechos reservados'
+			footerRights: 'Todos los derechos reservados',
+			cookieSettings: 'Configurar cookies',
+			cookieNoticeTitle: 'Privacidad y analítica',
+			cookieNoticeText: 'Este sitio usa Google Analytics para entender el uso de la web y mejorarla. Puedes aceptar o rechazar la analítica no necesaria.',
+			cookieAccept: 'Aceptar',
+			cookieReject: 'Rechazar'
 		},
 		en: {
 			metaTitle: 'David Rojo | Senior Backend Developer',
@@ -187,7 +192,12 @@
 			interestMotorbikes: 'Motorbikes',
 			contactTitle: 'Contact Me',
 			footerDevelopedBy: 'Developed by',
-			footerRights: 'All rights reserved'
+			footerRights: 'All rights reserved',
+			cookieSettings: 'Cookie settings',
+			cookieNoticeTitle: 'Privacy and analytics',
+			cookieNoticeText: 'This site uses Google Analytics to understand how the website is used and improve it. You can accept or reject non-essential analytics.',
+			cookieAccept: 'Accept',
+			cookieReject: 'Reject'
 		}
 	};
 
@@ -283,6 +293,11 @@
 			button.setAttribute('aria-pressed', String(isActive));
 		});
 	}
+
+	window.applySiteLanguage = applyLanguage;
+	window.getSiteLanguage = function () {
+		return document.documentElement.lang || defaultLanguage;
+	};
 
 	document.addEventListener('DOMContentLoaded', function () {
 		var initialLanguage = getStoredLanguage() || defaultLanguage;
