@@ -48,6 +48,7 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Normalizados `sitemap.xml`, canonical y metadatos tras eliminar `/en/`.
 - Añadida traducción completa del contenido principal largo en inglés mediante `data-i18n-html`.
 - Añadido control fijo y accesible para volver al inicio de la página.
+- Actualizado jQuery de 2.1.4 a 3.7.1 sin añadir `jquery-migrate`.
 
 ## Estrategia de idiomas
 
@@ -165,7 +166,7 @@ Problemas estructurales actuales:
 
 ### Riesgos técnicos
 
-- jQuery 2.1.4 es antiguo.
+- ✅ Hecho: jQuery se ha actualizado de 2.1.4 a 3.7.1; queda como mejora opcional futura eliminar jQuery migrando `js/main.js` a JavaScript nativo.
 - Dependencias vendorizadas sin versiones ni proceso de actualización claro.
 - Posible falta de efecto de `.htaccess` si el despliegue es GitHub Pages.
 - ✅ Hecho parcial: Google Analytics usa GA4 y ahora se carga solo tras consentimiento explícito; queda pendiente una revisión legal completa de privacidad/cookies si se mantiene tracking.
