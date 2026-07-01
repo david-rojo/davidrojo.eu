@@ -33,6 +33,7 @@
 		var banner = document.querySelector('[data-cookie-consent]');
 		if (banner) {
 			banner.hidden = false;
+			document.body.classList.add('cookie-consent-visible');
 		}
 	}
 
@@ -40,6 +41,7 @@
 		var banner = document.querySelector('[data-cookie-consent]');
 		if (banner) {
 			banner.hidden = true;
+			document.body.classList.remove('cookie-consent-visible');
 		}
 	}
 

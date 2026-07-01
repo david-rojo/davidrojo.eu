@@ -86,6 +86,28 @@ $(function () {
 		}
 	});
 
+	/* Back to top */
+	var $backToTop = $('[data-back-to-top]');
+	if ($backToTop.length) {
+		function toggleBackToTop() {
+			var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+			$backToTop.prop('hidden', scrollTop <= 200);
+		}
+
+		$(window).on('scroll', toggleBackToTop);
+		toggleBackToTop();
+
+		$backToTop.on('click', function(){
+			if (reduceMotion) {
+				$('body,html').scrollTop(0);
+			} else {
+				$('body,html').animate({
+					scrollTop: 0
+				}, 600);
+			}
+		});
+	}
+
 	/* Button hover effect */
 	$('.btn_animated').on('mouseenter', '.circle', function(e){
 		if (reduceMotion) {

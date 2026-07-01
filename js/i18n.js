@@ -100,7 +100,8 @@
 			cookieNoticeTitle: 'Privacidad y analítica',
 			cookieNoticeText: 'Este sitio usa Google Analytics para entender el uso de la web y mejorarla. Puedes aceptar o rechazar la analítica no necesaria.',
 			cookieAccept: 'Aceptar',
-			cookieReject: 'Rechazar'
+			cookieReject: 'Rechazar',
+			backToTopLabel: 'Volver arriba'
 		},
 		en: {
 			metaTitle: 'David Rojo | Senior Backend Developer',
@@ -197,7 +198,8 @@
 			cookieNoticeTitle: 'Privacy and analytics',
 			cookieNoticeText: 'This site uses Google Analytics to understand how the website is used and improve it. You can accept or reject non-essential analytics.',
 			cookieAccept: 'Accept',
-			cookieReject: 'Reject'
+			cookieReject: 'Reject',
+			backToTopLabel: 'Back to top'
 		}
 	};
 

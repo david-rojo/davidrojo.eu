@@ -47,6 +47,7 @@ Este roadmap es una guía de planificación. No sustituye a las instrucciones op
 - Eliminada la versión `/en/`; el inglés se sirve desde la página principal mediante i18n en cliente.
 - Normalizados `sitemap.xml`, canonical y metadatos tras eliminar `/en/`.
 - Añadida traducción completa del contenido principal largo en inglés mediante `data-i18n-html`.
+- Añadido control fijo y accesible para volver al inicio de la página.
 
 ## Estrategia de idiomas
 
@@ -140,7 +141,7 @@ Problemas estructurales actuales:
 ### Diseño y experiencia de usuario
 
 - ✅ Hecho: el selector de idioma es visible como acceso fijo `ES`/`EN` sin depender de banderas.
-- La navegación lateral puede resultar poco evidente en escritorio.
+- ✅ Hecho parcial: la navegación se ha reforzado con un control fijo para volver al inicio; la navegación lateral puede seguir resultando poco evidente en escritorio.
 - ✅ Hecho: el mapa se ha eliminado porque ocupaba espacio y añadía carga externa con poco valor práctico.
 - ✅ Hecho: la sección de clientes ya no usa popups; la información útil se muestra en tarjetas.
 - Los porcentajes de habilidades pueden parecer arbitrarios.
@@ -270,7 +271,7 @@ Objetivo: modernizar la experiencia sin perder la identidad profesional.
 Tareas recomendadas:
 
 - Hacer el selector de idioma más visible.
-- Mejorar navegación en escritorio y móvil.
+- ✅ Hecho parcial: mejorar navegación en escritorio y móvil.
 - Replantear la sección inicial para destacar perfil, especialidad y contacto.
 - Simplificar o eliminar popups de clientes.
 - Sustituir porcentajes de habilidades por categorías, experiencia o niveles más claros.
