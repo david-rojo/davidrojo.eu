@@ -323,3 +323,39 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 /* End From pillar template */
+
+/* Keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+	outline: 3px solid #ffbf47;
+	outline-offset: 3px;
+}
+
+.skip-link:focus-visible {
+	outline-color: #ffffff;
+	outline-offset: 4px;
+}
+
+header .top-menu ul li a:focus-visible:before,
+header .top-menu ul li a:hover:before {
+	opacity: 1;
+}
+
+header .menu-btn:focus-visible:before,
+header .menu-btn:hover:before {
+	opacity: 1;
+}
+
+.btn_animated:focus-visible,
+.btn:focus-visible,
+.filters label:focus-within {
+	box-shadow: 0 0 0 3px #ffbf47;
+}
+
+.filters label:focus-within {
+	border-radius: 2px;
+}

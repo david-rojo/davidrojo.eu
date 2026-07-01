@@ -134,7 +134,7 @@ Problemas estructurales actuales:
 - ✅ Hecho: las barras de progreso incluyen semántica accesible con `role="progressbar"` y valores ARIA.
 - ✅ Hecho: los filtros de clientes tienen `fieldset`, `legend` accesible y opción inicial marcada.
 - ✅ Hecho: añadidos enlaces de salto al contenido principal para navegación por teclado.
-- Debe revisarse contraste y estados de foco visibles.
+- ✅ Hecho parcial: añadidos estados de foco visibles para enlaces, botones, menú, filtros y controles principales; queda pendiente revisar contraste de forma completa.
 - ✅ Hecho: las animaciones respetan mejor `prefers-reduced-motion`.
 
 ### Diseño y experiencia de usuario
@@ -221,7 +221,7 @@ Tareas recomendadas:
 - 🟡 Hecho parcial: añadir nombres accesibles a enlaces con iconos principales.
 - ✅ Hecho: corregir `target="_blank"` con `rel="noopener noreferrer"`.
 - ✅ Hecho: eliminado el iframe de Google Maps en las páginas principales.
-- Revisar foco visible y navegación por teclado.
+- ✅ Hecho parcial: revisar foco visible y navegación por teclado.
 - Revisar contraste.
 - ✅ Hecho: respetar `prefers-reduced-motion`.
 
